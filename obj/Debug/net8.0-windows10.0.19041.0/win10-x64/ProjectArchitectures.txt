@@ -1,0 +1,1 @@
+C:\Users\g3k01\source\repos\BookReaderApp\BookReaderApp.csproj;x64
