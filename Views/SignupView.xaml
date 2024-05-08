@@ -24,8 +24,6 @@
                 HorizontalOptions="Start"
                 VerticalOptions="Start" />
 
-            <!--Add image picker here-->
-            
             <Entry
                 Placeholder="Enter Username"
                 x:Name="UsernameEntry"
@@ -45,6 +43,19 @@
                 VerticalOptions="CenterAndExpand" 
                 IsPassword="True"/>
 
+            <!--Add image picker here-->
+            <Label
+                Text="Image Url"
+                HorizontalOptions="Start"
+                VerticalOptions="Start" />
+
+            <Entry
+                Placeholder="Enter Image Url"
+                x:Name="ImageEntry"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="CenterAndExpand"/>
+            
+
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="30">
                 <Button
                     x:Name="SubmitBtn"
@@ -62,8 +73,13 @@
                     Clicked="CancelClicked"
                     WidthRequest="150"
                     BackgroundColor="Red"/>
-
             </StackLayout>
+            <Label
+                    x:Name="ValidationField"
+                    Text=""
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start" />  
+
 
         </VerticalStackLayout>
     </ScrollView>

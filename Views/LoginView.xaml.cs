@@ -29,7 +29,20 @@ namespace BookReaderApp.Views
             await Navigation.PushAsync(new SignupView());
         }
 
-        private async Task LoginClicked(object sender, EventArgs e)
+        private async void LoginClicked(object sender, EventArgs e)
+        {
+            if (UsernameEntry.Text == "" || PasswordEntry.Text == "")
+            {
+
+            }
+            else
+            {
+                //call login here
+                await Login();
+            }
+        }
+
+        private async Task Login()
         {
             string username = UsernameEntry.Text;
             string password = PasswordEntry.Text;
@@ -60,13 +73,14 @@ namespace BookReaderApp.Views
                 User.UserName = username;
 
                 User.UserId = await loginController.GetUserId(User.UserName, hashedpassword);
+                User.Image = await loginController.GetUserImage(User.UserName, hashedpassword);
 
                 // Navigate to the home view
-
+                await Navigation.PushAsync(new HomePageView());
             }
             else
             {
-                SignupBtn.Text = "Invalid username or password.";
+                ValidationField.Text = "Invalid username or password.";
             }
         }
 
@@ -93,7 +107,7 @@ namespace BookReaderApp.Views
             catch (Exception ex)
             {
                 // Handle API error
-                SignupBtn.Text = $"Failed to log in: {ex.Message}";
+                ValidationField.Text = $"Failed to log in: {ex.Message}";
                 return false;
             }
         }
@@ -109,20 +123,6 @@ namespace BookReaderApp.Views
             }
         }
 
-        //Move to signUp page
-        public async Task Post()
-        {
-            string id = "id";
-            LoginViewModel loginDetails = new LoginViewModel
-            {
-                Id = id,
-                Username = PasswordEntry.Text,
-                Level = "writer",
-                Pfp = ""
-            };
-            string postData = JsonConvert.SerializeObject(loginDetails);
-
-            await LoginViewModel.PostData(postData);
-        }
+        
     }
 }

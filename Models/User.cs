@@ -11,16 +11,16 @@ namespace BookReaderApp.Models
         private static string userName;
         private static userLevel level;
         private static string userId;
-        private static string pfp;
+        private static string image;
 
         public static string UserName
         {
             get { return userName; }
             set { userName = value; }
         }
-        public static string Pfp
+        public static string Image
         {
-            get { return pfp; }
+            get { return image; }
             set { userName = value; }
         }
 

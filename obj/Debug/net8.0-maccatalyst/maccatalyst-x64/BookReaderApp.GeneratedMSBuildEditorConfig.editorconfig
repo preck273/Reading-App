@@ -40,6 +40,18 @@ build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.Resources.St
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
+[C:/Users/g3k01/source/repos/BookReaderApp/Views/EditUsersView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.Views.EditUsersView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\EditUsersView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\EditUsersView.xaml
+
+[C:/Users/g3k01/source/repos/BookReaderApp/Views/HomePageView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.Views.HomePageView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\HomePageView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\HomePageView.xaml
+
 [C:/Users/g3k01/source/repos/BookReaderApp/Views/LoginView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.Views.LoginView.xaml

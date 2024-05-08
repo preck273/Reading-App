@@ -43,7 +43,6 @@
                 IsPassword="True"/>
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="30">
-                <!--
                 <Button
                     x:Name="LoginBtn"
                     Text="Login" 
@@ -52,13 +51,19 @@
                     HorizontalOptions="Center"
                     WidthRequest="150"
                     BackgroundColor="GreenYellow"/>
--->
+                
                 <Button
                     x:Name="SignupBtn"
                     Text="Sign Up" 
                     SemanticProperties.Hint="Signup Clicked"
                     Clicked="SignupClicked"
                     WidthRequest="150"/>
+
+                <Label
+                    x:Name="ValidationField"
+                    Text=""
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start" /> 
 
             </StackLayout>
 
