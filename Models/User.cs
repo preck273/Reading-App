@@ -21,7 +21,7 @@ namespace BookReaderApp.Models
         public static string Image
         {
             get { return image; }
-            set { userName = value; }
+            set { image = value; }
         }
 
 

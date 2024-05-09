@@ -36,11 +36,11 @@ build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.Resources.St
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
-[C:/Users/g3k01/source/repos/BookReaderApp/Views/EditUsersView.xaml]
+[C:/Users/g3k01/source/repos/BookReaderApp/Views/EditUserView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.Views.EditUsersView.xaml
-build_metadata.AdditionalFiles.TargetPath = Views\EditUsersView.xaml
-build_metadata.AdditionalFiles.RelativePath = Views\EditUsersView.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.Views.EditUserView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\EditUserView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\EditUserView.xaml
 
 [C:/Users/g3k01/source/repos/BookReaderApp/Views/HomePageView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
@@ -53,6 +53,24 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.Views.LoginView.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\LoginView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\LoginView.xaml
+
+[C:/Users/g3k01/source/repos/BookReaderApp/Views/PitchView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.Views.PitchView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\PitchView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\PitchView.xaml
+
+[C:/Users/g3k01/source/repos/BookReaderApp/Views/ShowPitchesView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.Views.ShowPitchesView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ShowPitchesView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ShowPitchesView.xaml
+
+[C:/Users/g3k01/source/repos/BookReaderApp/Views/ShowUsersView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.Views.ShowUsersView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ShowUsersView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ShowUsersView.xaml
 
 [C:/Users/g3k01/source/repos/BookReaderApp/Views/SignupView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml

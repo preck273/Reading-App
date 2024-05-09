@@ -15,7 +15,7 @@
             Spacing="25">
 
             <Label
-                Text="Signup to BookApp"
+                Text="Signup for BookApp"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
 

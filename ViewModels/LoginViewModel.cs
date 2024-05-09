@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using BookReaderApp.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,13 +13,6 @@ namespace BookReaderApp.ViewModels;
 
 class LoginViewModel
 {
-    public string Id { get; set; }
-    public string Username { get; set; }
-    public string Password { get; set; }
-    public string Level { get; set; }
-    public string Image { get; set; }
-
-
 
     public async Task<string> GetAllJson()
     {
@@ -42,8 +36,8 @@ class LoginViewModel
         {
             string jsonData = await GetAllJson();
 
-            List<LoginViewModel> userList = JsonConvert.DeserializeObject<List<LoginViewModel>>(jsonData);
-            foreach (LoginViewModel user in userList)
+            List<LoginModel> userList = JsonConvert.DeserializeObject<List<LoginModel>>(jsonData);
+            foreach (LoginModel user in userList)
             {
                 if (user.Username == username && user.Password == password)
                 {
@@ -65,8 +59,8 @@ class LoginViewModel
         {
             string jsonData = await GetAllJson();
 
-            List<LoginViewModel> userList = JsonConvert.DeserializeObject<List<LoginViewModel>>(jsonData);
-            foreach (LoginViewModel user in userList)
+            List<LoginModel> userList = JsonConvert.DeserializeObject<List<LoginModel>>(jsonData);
+            foreach (LoginModel user in userList)
             {
                 if (user.Username == username && user.Password == password)
                 {

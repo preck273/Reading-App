@@ -21,6 +21,7 @@ namespace BookReaderApp.Views
         public LoginView()
         {
             InitializeComponent();
+            PitchesViewModel pitchController = new PitchesViewModel();
 
         }
 
@@ -90,7 +91,7 @@ namespace BookReaderApp.Views
             {
                 // Retrieve all user records from the API
                 string json = await loginController.GetAllJson();
-                var users = JsonConvert.DeserializeObject<List<LoginViewModel>>(json);
+                var users = JsonConvert.DeserializeObject<List<LoginModel>>(json);
 
                 var user = users.FirstOrDefault(u => u.Username == username);
                 if (user != null)

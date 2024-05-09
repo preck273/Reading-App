@@ -176,3 +176,5 @@ C:\Users\g3k01\source\repos\BookReaderApp\obj\Debug\net8.0-windows10.0.19041.0\w
 C:\Users\g3k01\source\repos\BookReaderApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
 C:\Users\g3k01\source\repos\BookReaderApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
 C:\Users\g3k01\source\repos\BookReaderApp\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Newtonsoft.Json.dll
+C:\Users\g3k01\source\repos\BookReaderApp\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\System.Data.SqlClient.dll
+C:\Users\g3k01\source\repos\BookReaderApp\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\sni.dll
