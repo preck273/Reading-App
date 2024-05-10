@@ -1,4 +1,5 @@
-﻿using BookReaderApp.Views;
+﻿using BookReaderApp.ViewModels;
+using BookReaderApp.Views;
 
 namespace BookReaderApp
 {

@@ -22,7 +22,6 @@ public partial class SignupView : ContentPage
         }
         else
         {
-            //call login here
             await Signup();
             new NavigationPage(new LoginView());
         }
@@ -40,11 +39,11 @@ public partial class SignupView : ContentPage
         bool exists = false;
         string username = UsernameEntry.Text;
         string password = PasswordEntry.Text;
-        string level = "Reader";
+        string level = "reader";
         string image = ImageEntry.Text;
 
         var json = await loginController.GetAllJson();
-        var users = JsonConvert.DeserializeObject<List<LoginViewModel>>(json);
+        var users = JsonConvert.DeserializeObject<List<LoginModel>>(json);
 
         foreach (var user in users)
         {

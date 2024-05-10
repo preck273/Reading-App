@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using BookReaderApp.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,13 +13,6 @@ namespace BookReaderApp.ViewModels;
 
 class LoginViewModel
 {
-    public string Id { get; set; }
-    public string Username { get; set; }
-    public string Password { get; set; }
-    public string Level { get; set; }
-    public string Image { get; set; }
-
-
 
     public async Task<string> GetAllJson()
     {
@@ -42,8 +36,8 @@ class LoginViewModel
         {
             string jsonData = await GetAllJson();
 
-            List<LoginViewModel> userList = JsonConvert.DeserializeObject<List<LoginViewModel>>(jsonData);
-            foreach (LoginViewModel user in userList)
+            List<LoginModel> userList = JsonConvert.DeserializeObject<List<LoginModel>>(jsonData);
+            foreach (LoginModel user in userList)
             {
                 if (user.Username == username && user.Password == password)
                 {
@@ -65,8 +59,8 @@ class LoginViewModel
         {
             string jsonData = await GetAllJson();
 
-            List<LoginViewModel> userList = JsonConvert.DeserializeObject<List<LoginViewModel>>(jsonData);
-            foreach (LoginViewModel user in userList)
+            List<LoginModel> userList = JsonConvert.DeserializeObject<List<LoginModel>>(jsonData);
+            foreach (LoginModel user in userList)
             {
                 if (user.Username == username && user.Password == password)
                 {
@@ -82,11 +76,11 @@ class LoginViewModel
         }
     }
 
-    public async Task<XmlDocument> GetById(int id, string format)
+    public async Task<string> GetById(string id, string format)
     {
         using (HttpClient client = new HttpClient())
         {
-            string url = $"https://localhost:7005/api/UserUser/Get/{id}";
+            string url = $"https://localhost:7005/api/User/Get/{id}";
             if (format.ToLower() == "xml")
             {
                 client.DefaultRequestHeaders.Accept.Clear();
@@ -95,9 +89,9 @@ class LoginViewModel
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    XmlDocument xmlDocument = new XmlDocument();
-                    xmlDocument.LoadXml(content);
-                    return xmlDocument;
+                   /* XmlDocument xmlDocument = new XmlDocument();
+                    xmlDocument.LoadXml(content);*/
+                    return content;
                 }
                 else
                 {
@@ -110,9 +104,8 @@ class LoginViewModel
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    XmlDocument xmlDocument = new XmlDocument();
-                    xmlDocument.LoadXml(content);
-                    return xmlDocument;
+                    
+                    return content;
                 }
                 else
                 {
@@ -129,20 +122,3 @@ class LoginViewModel
 
    
 }
-
-/*
-< VerticalStackLayout >
-    < Label
-        Text = "Welcome to .NET MAUI!"
-        VerticalOptions = "Center"
-        HorizontalOptions = "Center" />
-
-    < Image
-   Source = "dotnet_bot.png"
-   HeightRequest = "185"
-   Aspect = "AspectFit"
-   SemanticProperties.Description = "dot net bot in a race car number eight" />
-
-</ VerticalStackLayout >
-</ ContentPage >
-*/
