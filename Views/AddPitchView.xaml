@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookReaderApp.Views.AddPitchView"
+             Title="AddPitchView">
+    <VerticalStackLayout Padding="30,0"
+        Spacing="25">
+
+        <Label
+            Text="Make a pitch"
+            Style="{StaticResource Headline}"
+            SemanticProperties.HeadingLevel="Level1" />
+
+
+        <Entry x:Name="PitchEntry" HeightRequest="70" Placeholder="Tell us your idea" />
+        <Button Padding="10" Text="Submit" Clicked="OnSubmitClicked" />
+
+        <Label
+            x:Name="ValidationField"
+            Text=""
+            HorizontalOptions="Start"
+            VerticalOptions="Start" />
+
+    </VerticalStackLayout>
+</ContentPage>

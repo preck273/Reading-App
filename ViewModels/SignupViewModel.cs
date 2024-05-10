@@ -81,7 +81,7 @@ namespace BookReaderApp.ViewModels
             }
         }
 
-        public async Task Delete(int id)
+        public async Task Delete(string id)
         {
             try
             {

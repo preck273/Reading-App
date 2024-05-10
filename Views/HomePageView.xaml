@@ -36,6 +36,15 @@
               Clicked="PitchBtnClicked"
               BackgroundColor="MediumPurple"
                 HeightRequest="10"
+              WidthRequest="150"/>   
+            
+            <Button
+              x:Name="AddPitchBtn"
+              Text="Make A Pitch" 
+              SemanticProperties.Hint="New Pitch Clicked"
+              Clicked="AddPitchBtnClicked"
+              BackgroundColor="MediumPurple"
+                HeightRequest="10"
               WidthRequest="150"/>      
         </StackLayout>
 

@@ -76,11 +76,11 @@ class LoginViewModel
         }
     }
 
-    public async Task<XmlDocument> GetById(int id, string format)
+    public async Task<string> GetById(string id, string format)
     {
         using (HttpClient client = new HttpClient())
         {
-            string url = $"https://localhost:7005/api/UserUser/Get/{id}";
+            string url = $"https://localhost:7005/api/User/Get/{id}";
             if (format.ToLower() == "xml")
             {
                 client.DefaultRequestHeaders.Accept.Clear();
@@ -89,9 +89,9 @@ class LoginViewModel
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    XmlDocument xmlDocument = new XmlDocument();
-                    xmlDocument.LoadXml(content);
-                    return xmlDocument;
+                   /* XmlDocument xmlDocument = new XmlDocument();
+                    xmlDocument.LoadXml(content);*/
+                    return content;
                 }
                 else
                 {
@@ -104,9 +104,8 @@ class LoginViewModel
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    XmlDocument xmlDocument = new XmlDocument();
-                    xmlDocument.LoadXml(content);
-                    return xmlDocument;
+                    
+                    return content;
                 }
                 else
                 {
@@ -123,20 +122,3 @@ class LoginViewModel
 
    
 }
-
-/*
-< VerticalStackLayout >
-    < Label
-        Text = "Welcome to .NET MAUI!"
-        VerticalOptions = "Center"
-        HorizontalOptions = "Center" />
-
-    < Image
-   Source = "dotnet_bot.png"
-   HeightRequest = "185"
-   Aspect = "AspectFit"
-   SemanticProperties.Description = "dot net bot in a race car number eight" />
-
-</ VerticalStackLayout >
-</ ContentPage >
-*/

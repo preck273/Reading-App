@@ -16,16 +16,15 @@ Spacing="25">
                 HeightRequest="10"
               WidthRequest="150"/>
         <Label
-            Text="Manage Users"
+            Text="Manage All Pitches"
             Style="{StaticResource Headline}"
             SemanticProperties.HeadingLevel="Level1"
             HorizontalOptions="Center"/>
 
         <StackLayout Orientation="Horizontal">
-            <Label Text="Username" WidthRequest="100" />
-            <Label Text="Image" WidthRequest="100" />
-            <Label Text="Level" WidthRequest="100" />
-            <Label Text="Pfp" WidthRequest="100" />
+            <Label Text="Id" WidthRequest="100" />
+            <Label Text="UserId" WidthRequest="100" />
+            <Label Text="Pitch" WidthRequest="100" />
         </StackLayout>
         <ListView x:Name="PitchesListView" VerticalOptions="FillAndExpand"
                    ItemTapped="PitchesListView_ItemTapped">
@@ -34,16 +33,20 @@ Spacing="25">
                     <ViewCell>
 
                         <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Pid}" WidthRequest="100" />
+                            <Label Text="{Binding Userid}" WidthRequest="100" />
+                            <Label Text="{Binding PitchContent}" WidthRequest="100" />
 
-                            <Label Text="{Binding Id}" WidthRequest="100" />
-                            <Label Text="{Binding Username}" WidthRequest="100" />
-                            <Label Text="{Binding Level}" WidthRequest="100" />
-                            <Image Source="{Binding Image}" HeightRequest="50" Aspect = "AspectFit"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-    </VerticalStackLayout>
+        <Label
+            x:Name="ValidationField"
+            Text=""
+            HorizontalOptions="Start"
+            VerticalOptions="Start" />
+     </VerticalStackLayout>
 </ContentPage>

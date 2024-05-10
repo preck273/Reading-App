@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{B10886C2-6E70-4A82-A975-216B0D4CBD99}|bookAppApi.csproj|solutionrelative:db.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B10886C2-6E70-4A82-A975-216B0D4CBD99}|bookAppApi.csproj|c:\\users\\g3k01\\source\\repos\\bookreaderapi\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B10886C2-6E70-4A82-A975-216B0D4CBD99}|bookAppApi.csproj|C:\\Users\\g3k01\\source\\repos\\BookReaderApi\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B10886C2-6E70-4A82-A975-216B0D4CBD99}|bookAppApi.csproj|solutionrelative:model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -48,7 +48,7 @@
               "RelativeDocumentMoniker": "db.cs",
               "ToolTip": "C:\\Users\\g3k01\\source\\repos\\BookReaderApi\\db.cs",
               "RelativeToolTip": "db.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAADCAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABQAAADCAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-09T19:08:42.072Z",
               "EditorCaption": ""
@@ -63,8 +63,7 @@
               "RelativeToolTip": "Model\\User.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-09T19:08:41.074Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-09T19:08:41.074Z"
             }
           ]
         }
