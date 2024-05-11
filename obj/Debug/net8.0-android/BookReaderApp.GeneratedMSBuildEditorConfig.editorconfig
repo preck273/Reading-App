@@ -12,84 +12,78 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BookReaderApp
-build_property.ProjectDir = C:\Users\Pepelito\Documents\GitHub\Reading-App\
+build_property.ProjectDir = C:\Users\g3k01\source\repos\BookReaderApp\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 
-[C:/Users/Pepelito/Documents/GitHub/Reading-App/App.xaml]
+[C:/Users/g3k01/source/repos/BookReaderApp/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[C:/Users/Pepelito/Documents/GitHub/Reading-App/AppShell.xaml]
+[C:/Users/g3k01/source/repos/BookReaderApp/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[C:/Users/Pepelito/Documents/GitHub/Reading-App/Resources/Styles/Colors.xaml]
+[C:/Users/g3k01/source/repos/BookReaderApp/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.Resources.Styles.Colors.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
-[C:/Users/Pepelito/Documents/GitHub/Reading-App/Resources/Styles/Styles.xaml]
+[C:/Users/g3k01/source/repos/BookReaderApp/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
-[C:/Users/Pepelito/Documents/GitHub/Reading-App/Views/AddPitchView.xaml]
+[C:/Users/g3k01/source/repos/BookReaderApp/Views/AddPitchView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.Views.AddPitchView.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\AddPitchView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\AddPitchView.xaml
 
-[C:/Users/Pepelito/Documents/GitHub/Reading-App/Views/EditUserView.xaml]
+[C:/Users/g3k01/source/repos/BookReaderApp/Views/EditUserView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.Views.EditUserView.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\EditUserView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\EditUserView.xaml
 
-[C:/Users/Pepelito/Documents/GitHub/Reading-App/Views/HomePageView.xaml]
+[C:/Users/g3k01/source/repos/BookReaderApp/Views/HomePageView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.Views.HomePageView.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HomePageView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HomePageView.xaml
 
-[C:/Users/Pepelito/Documents/GitHub/Reading-App/Views/LoginView.xaml]
+[C:/Users/g3k01/source/repos/BookReaderApp/Views/LoginView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.Views.LoginView.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\LoginView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\LoginView.xaml
 
-[C:/Users/Pepelito/Documents/GitHub/Reading-App/Views/PitchView.xaml]
+[C:/Users/g3k01/source/repos/BookReaderApp/Views/PitchView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.Views.PitchView.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\PitchView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\PitchView.xaml
 
-[C:/Users/Pepelito/Documents/GitHub/Reading-App/Views/ShowPitchesView.xaml]
+[C:/Users/g3k01/source/repos/BookReaderApp/Views/ShowPitchesView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.Views.ShowPitchesView.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\ShowPitchesView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\ShowPitchesView.xaml
 
-[C:/Users/Pepelito/Documents/GitHub/Reading-App/Views/ShowUsersView.xaml]
+[C:/Users/g3k01/source/repos/BookReaderApp/Views/ShowUsersView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.Views.ShowUsersView.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\ShowUsersView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\ShowUsersView.xaml
 
-[C:/Users/Pepelito/Documents/GitHub/Reading-App/Views/SignupView.xaml]
+[C:/Users/g3k01/source/repos/BookReaderApp/Views/SignupView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.Views.SignupView.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\SignupView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\SignupView.xaml
-
-[C:/Users/Pepelito/Documents/GitHub/Reading-App/Views/UploadBookView.xaml]
-build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.Views.UploadBookView.xaml
-build_metadata.AdditionalFiles.TargetPath = Views\UploadBookView.xaml
-build_metadata.AdditionalFiles.RelativePath = Views\UploadBookView.xaml
