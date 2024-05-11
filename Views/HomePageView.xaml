@@ -6,7 +6,35 @@
              Title="HomePageView">
     <ContentPage.BindingContext>
         <local:User />
+        
+
     </ContentPage.BindingContext>
+    <!-- Centered Content -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+   
+        </Grid.RowDefinitions>
+
+        <StackLayout Grid.Row="1" HorizontalOptions="Start" VerticalOptions="Center">
+            <!-- Book Picture -->
+            <Image Source="{Binding BookImage}"
+                
+                   Aspect="AspectFit"
+                   BackgroundColor="red"
+                   HeightRequest="320" />
+            
+
+            <!-- Book Name -->
+            <Label Text="{Binding BookName}" 
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand" />
+        </StackLayout>
+   
+
     <VerticalStackLayout>
         <StackLayout Orientation="Horizontal" HorizontalOptions="End" Spacing="30">
             <Label
@@ -45,14 +73,28 @@
               Clicked="AddPitchBtnClicked"
               BackgroundColor="MediumPurple"
                 HeightRequest="10"
-              WidthRequest="150"/>      
-        </StackLayout>
+              WidthRequest="150"/>
+            
+            <Button
+                x:Name="UploadBtn"
+                Text="Upload Book" 
+                SemanticProperties.Hint="Upload new book"
+                Clicked="UploadBtnClicked"
+                BackgroundColor="DarkGreen"
+                HeightRequest="10"
+                WidthRequest="150"/>              
+
+
+            </StackLayout>
 
         <Label
             x:Name="ValidationField"
             Text=""
             HorizontalOptions="Start"
             VerticalOptions="Start" />  
+        
 
     </VerticalStackLayout>
+    </Grid>
+
 </ContentPage>
