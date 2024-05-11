@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using BookReaderApp.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +35,7 @@ namespace BookReaderApp.ViewModels
             Random random = new Random();
             int id = random.Next(1000, 9999);
 
-            LoginViewModel user = new LoginViewModel
+            LoginModel user = new LoginModel
 
             {
                 Id = id.ToString(),
@@ -51,7 +52,7 @@ namespace BookReaderApp.ViewModels
         {
             try
             {
-                string baseUrl = "https://localhost:7005/api/Transaction";
+                string baseUrl = "https://localhost:7005/api/User";
 
                 string url = $"{baseUrl}/Update/{id}";
 
@@ -64,8 +65,7 @@ namespace BookReaderApp.ViewModels
 
                     if (response.IsSuccessStatusCode)
                     {
-                        Console.WriteLine("Transaction updated successfully!");
-                        return "Transaction updated successfully!";
+                        return "User updated successfully!";
                     }
                     else
                     {
@@ -81,7 +81,7 @@ namespace BookReaderApp.ViewModels
             }
         }
 
-        public async Task Delete(int id)
+        public async Task Delete(string id)
         {
             try
             {
