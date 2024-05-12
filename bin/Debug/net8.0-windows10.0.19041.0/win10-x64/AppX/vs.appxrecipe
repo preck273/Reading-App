@@ -29,13 +29,13 @@
     <AppXManifest Include="C:\Users\Pepelito\Documents\GitHub\Reading-App\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-05-12T16:16:39.001</Modified>
+      <Modified>2024-05-12T16:46:09.565</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Pepelito\Documents\GitHub\Reading-App\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2024-05-12T16:16:38.857</Modified>
+      <Modified>2024-05-12T16:46:09.418</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Pepelito\Documents\GitHub\Reading-App\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\BookReaderApp.runtimeconfig.json">
       <PackagePath>BookReaderApp.runtimeconfig.json</PackagePath>
@@ -43,7 +43,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Pepelito\Documents\GitHub\Reading-App\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\BookReaderApp.dll">
       <PackagePath>BookReaderApp.dll</PackagePath>
-      <Modified>2024-05-12T16:16:38.276</Modified>
+      <Modified>2024-05-12T16:46:08.782</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Pepelito\.nuget\packages\pdfiumviewer.native.x86_64.v8-xfa\2018.4.8.256\Build\x64\pdfium.dll">
       <PackagePath>x64\pdfium.dll</PackagePath>
@@ -51,7 +51,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Pepelito\Documents\GitHub\Reading-App\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>BookReaderApp.exe</PackagePath>
-      <Modified>2024-05-12T16:16:38.291</Modified>
+      <Modified>2024-05-12T16:46:08.793</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Pepelito\Documents\GitHub\Reading-App\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
