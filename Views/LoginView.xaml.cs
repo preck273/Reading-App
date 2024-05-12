@@ -75,6 +75,7 @@ namespace BookReaderApp.Views
 
                 User.UserId = await loginController.GetUserId(User.UserName, hashedpassword);
                 User.Image = await loginController.GetUserImage(User.UserName, hashedpassword);
+                User.Email = await loginController.GetUserEmail(User.UserName, hashedpassword);
 
                 // Navigate to the home view
                 await Navigation.PushAsync(new HomePageView());

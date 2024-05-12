@@ -298,7 +298,7 @@ namespace BookReaderApp.ViewModels
             SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
             {
                 Port = 587,
-                Credentials = new NetworkCredential(senderEmail, ""),
+                Credentials = new NetworkCredential(senderEmail, "zofhvzlzzzawgihz"),
                 EnableSsl = true,
             };
 

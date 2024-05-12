@@ -2,135 +2,175 @@ using BookReaderApp.ViewModels;
 using BookReaderApp.Models;
 using Newtonsoft.Json;
 using System.Diagnostics;
-namespace BookReaderApp.Views;
+using System.Threading;
+using System.Threading.Tasks;
 
-public partial class ShowPitchesView : ContentPage
+namespace BookReaderApp.Views
 {
-    private readonly LoginViewModel loginController = new LoginViewModel();
-    private readonly SignupViewModel signUpController = new SignupViewModel();
-    private readonly PitchesViewModel pitchController = new PitchesViewModel();
-    private LoginModel selectedUser = new LoginModel();
-    public ShowPitchesView()
-	{
-		InitializeComponent();
-        FillTable();
-
-    }
-    
-    private async void PitchesListView_ItemTapped(object sender, ItemTappedEventArgs e)
+    public partial class ShowPitchesView : ContentPage
     {
+        private readonly LoginViewModel loginController = new LoginViewModel();
+        private readonly SignupViewModel signUpController = new SignupViewModel();
+        private readonly PitchesViewModel pitchController = new PitchesViewModel();
+        private LoginModel selectedUser = new LoginModel();
+        private SemaphoreSlim semaphore = new SemaphoreSlim(2, 2); 
 
-        var selectedPitch = (PitchModel)e.Item;
-        getUser(selectedPitch.Userid);
-        if (User.Level == userLevel.EDITOR)
+        public ShowPitchesView()
         {
-            if (selectedPitch.IsPublished == false)
+            InitializeComponent();
+            FillTable();
+        }
+
+        private async void PitchesListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var selectedPitch = (PitchModel)e.Item;
+            getUser(selectedPitch.Userid);
+            if (User.Level == userLevel.EDITOR)
             {
-                bool grantPrivilege = await DisplayAlert("Grant Writer Privilege", $"Grant user {selectedPitch.Userid} Writer privilege?", "Yes", "No");
-                if (!grantPrivilege)
+                if (selectedPitch.IsPublished == false)
                 {
-                    //Possibly send email to user that their pitch has been denied
-;
-                    //Semaphore here
-                    pitchController.SendEmail(User.Email, selectedUser.Email, "Pitch Denied", "Your pitch has been denied.");
-                    PitchesViewModel.isReviewed(selectedPitch.Pid);
-                    
-                    //PitchesViewModel.DeletePitch(selectedPitch.Pid);
-
-                    ValidationField.Text = "Pitch has been denied!";
-                    ShowPitchesView previousPage = new ShowPitchesView();
-
-                    await Navigation.PushAsync(previousPage);
-                }
-                else
-                {
-                    LoginModel loginModel = new LoginModel
+                    bool grantPrivilege = await DisplayAlert("Grant Writer Privilege", $"Grant user {selectedPitch.Userid} Writer privilege?", "Yes", "No");
+                    if (!grantPrivilege)
                     {
-                        Id = selectedUser.Id,
-                        Username = selectedUser.Username,
-                        Password = selectedUser.Password,
-                        Level = "writer",
-                        Image = selectedUser.Image,
-                        Email = selectedUser.Email,
-                    };
+                        for (int i = 0; i < 5; i++)
+                        {
+                            Debug.WriteLine("Starting" + i);
+                            SendEmail(grantPrivilege);
+                            Thread.Sleep(1);
+                            Updatedb(grantPrivilege, selectedPitch);
+                            Debug.WriteLine("Releasing" + i);
 
-                    string postData = JsonConvert.SerializeObject(loginModel);
+                            /*await semaphore.WaitAsync();
 
-                    string response = await signUpController.Put(selectedUser.Id, postData);
+                            try
+                            {
 
-                    ValidationField.Text = response;
-                    if (response == "User updated successfully!")
+                                Debug.WriteLine("Starting" + i);
+                                SendEmail(grantPrivilege);
+                                Updatedb(grantPrivilege, selectedPitch);
+                            }
+                            finally
+                            {
+                                Debug.WriteLine("Releasing" + i);
+                                semaphore.Release();
+                            }
+                            ValidationField.Text = "Pitch has been denied!" + i;
+*/
+                        }
+
+                        ValidationField.Text = "Pitch has been denied!";
+                        /*ShowPitchesView previousPage = new ShowPitchesView();
+                        await Navigation.PushAsync(previousPage);*/
+                    }
+                    else
                     {
-                        //Semaphore here
-                        Debug.WriteLine(User.Email);
-                        Debug.WriteLine(selectedUser.Email);
-
-                        //pitchController.SendEmail(User.Email, selectedUser.Email, "Pitch Accepted", "Your pitch has been accepted.");
-
-                        PitchesViewModel.isReviewed(selectedPitch.Pid);
-                        PitchesViewModel.canPublish(selectedPitch.Pid);
-
-                        ShowUsersView nextPage = new ShowUsersView();
-
-                        await Navigation.PushAsync(nextPage);
+                        await UpdateUserAndSendEmail(grantPrivilege,selectedPitch);
                     }
                 }
-            }
-            else
-            {
-                ValidationField.Text = "Pitch has already been accepted";
-            }
-        }
-        else 
-        {
-            if (!selectedPitch.IsPublished)
-            {
-                if (selectedPitch.IsReviewed)
-                {
-                    await DisplayAlert("Pitch Denied", "Your pitch was denied. Please submit a new pitch.", "OK");
-                }
                 else
                 {
-                    await DisplayAlert("Pitch Review", "Your pitch has not been reviewed by an editor. Please wait for the review.", "OK");
+                    ValidationField.Text = "Pitch has already been accepted";
                 }
             }
             else
             {
-                await DisplayAlert("Ready to Publish", "You can now publish the book using the publish button on the home page.", "OK");
             }
         }
-    }
 
-
-    private async void HomeClicked(object sender, EventArgs e)
-    {
-        HomePageView previousPage = new HomePageView();
-
-        await Navigation.PushAsync(previousPage);
-    }
-
-    public async void FillTable()
-    {
-        if (User.Level == userLevel.EDITOR)
+        private void SendEmail(bool accepted)
         {
-            List<PitchModel> pitches = PitchesViewModel.GetAllPitches();
-            PitchesListView.ItemsSource = pitches;
+            if (!accepted)
+            {
+                pitchController.SendEmail(User.Email, selectedUser.Email, "Pitch Denied", "Your pitch has been denied.");
+            }
+            else
+            {
+                pitchController.SendEmail(User.Email, selectedUser.Email, "Pitch Accepted", "Your pitch has been accepted.");
+            }
         }
-        else
-        {
-            List<PitchModel> pitches = PitchesViewModel.GetUserPitches(User.UserId);
-            PitchesListView.ItemsSource = pitches;
-        }
-           
-        
-    }
-    
-    public async void getUser(string id)
-    {
-        var json = await loginController.GetById(id, "json");
-        var user = JsonConvert.DeserializeObject<LoginModel>(json);
 
-        // Populate userList with users from JSON
-        selectedUser = user;
+        private void Updatedb(bool accepted, PitchModel selectedPitch)
+        {
+            if (!accepted)
+            {
+                PitchesViewModel.isReviewed(selectedPitch.Pid);
+            }
+            else
+            {
+                PitchesViewModel.isReviewed(selectedPitch.Pid);
+                PitchesViewModel.canPublish(selectedPitch.Pid);
+            }
+        }
+
+
+        private async Task UpdateUserAndSendEmail(bool accepted, PitchModel selectedPitch)
+        {
+            LoginModel loginModel = new LoginModel
+            {
+                Id = selectedUser.Id,
+                Username = selectedUser.Username,
+                Password = selectedUser.Password,
+                Level = "writer",
+                Image = selectedUser.Image,
+                Email = selectedUser.Email,
+            };
+
+            string postData = JsonConvert.SerializeObject(loginModel);
+            string response = await signUpController.Put(selectedUser.Id, postData);
+
+            ValidationField.Text = response;
+            if (response == "User updated successfully!")
+            {
+                Debug.WriteLine("Sending {0} to {1}", "Pitch Accepted", selectedUser.Email);
+                await semaphore.WaitAsync();
+                try
+                {
+                    Debug.WriteLine("{0} to {1} in semaphore", "Pitch Accepted", selectedUser.Email);
+                    SendEmail(accepted);
+                    Updatedb(accepted, selectedPitch);
+                   
+                }
+                finally
+                {
+                    Debug.WriteLine("Releasing {0} to {1} from semaphore", "Pitch Accepted", selectedUser.Email);
+
+                    semaphore.Release();
+                }
+
+/*
+                ShowPitchesView previousPage = new ShowPitchesView();
+                await Navigation.PushAsync(previousPage);*/
+            }
+        }
+
+        private async void HomeClicked(object sender, EventArgs e)
+        {
+            HomePageView previousPage = new HomePageView();
+            await Navigation.PushAsync(previousPage);
+        }
+
+
+
+        public async void FillTable()
+        {
+            if (User.Level == userLevel.EDITOR)
+            {
+                List<PitchModel> pitches = PitchesViewModel.GetAllPitches();
+                PitchesListView.ItemsSource = pitches;
+            }
+            else
+            {
+                List<PitchModel> pitches = PitchesViewModel.GetUserPitches(User.UserId);
+                PitchesListView.ItemsSource = pitches;
+            }
+        }
+
+        public async void getUser(string id)
+        {
+            var json = await loginController.GetById(id, "json");
+            var user = JsonConvert.DeserializeObject<LoginModel>(json);
+
+            selectedUser = user;
+        }
     }
 }
