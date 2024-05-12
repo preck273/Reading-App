@@ -44,7 +44,7 @@ public partial class UploadBookView : ContentPage
 
 	private async void UploadImageButton_Clicked(object sender, EventArgs e)
 	{
-		// Replace "ImagePicker" with your actual method for picking an image file
+		
 		var imageFile = await FilePicker.PickAsync(new PickOptions
 		{
 			FileTypes = FilePickerFileType.Images,
@@ -96,7 +96,7 @@ public partial class UploadBookView : ContentPage
 		}
 		finally
 		{
-			semaphore.Release(); // Release the semaphore to allow other threads to enter
+			semaphore.Release(); 
 		}
 	}
 

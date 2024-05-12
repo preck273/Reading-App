@@ -64,12 +64,9 @@ public partial class HomePageView : ContentPage
 			imageBytes = ms.ToArray();
 		}
 
-		book.PdfImage = Convert.ToBase64String(imageBytes); // Assuming imageBytes is the byte array of your image
-
-		// Set the PdfImage property of the BookModel to the base64 string representation of the image
+		book.PdfImage = Convert.ToBase64String(imageBytes); 
 		book.PdfImage = Convert.ToBase64String(imageBytes);
 
-		// Set the PdfFile property of the BookModel to the base64 string representation of the PDF file
 		book.PdfFile = Convert.ToBase64String(pdfBytes);
 
 	}
