@@ -12,5 +12,6 @@ namespace BookReaderApp.Models
         public string Userid { get; set; }
         public string PitchContent { get; set; }
         public bool IsPublished { get; set; }
+        public bool IsReviewed { get; set; }
     }
 }

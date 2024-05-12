@@ -21,7 +21,7 @@ public partial class AddPitchView : ContentPage
             return;
         }
 
-        bool success = PitchesViewModel.AddPitch(User.UserId, pitchContent, false);
+        bool success = PitchesViewModel.AddPitch(User.UserId, pitchContent, false, false);
 
         if (success)
         {

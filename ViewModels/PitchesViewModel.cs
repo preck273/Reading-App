@@ -84,7 +84,7 @@ namespace BookReaderApp.ViewModels
             return exists;
         }
 
-        public static bool AddPitch(string userId, string pitchContent, bool isPublished)
+        public static bool AddPitch(string userId, string pitchContent, bool isPublished, bool isReviewed)
         {
             if (PitchExists(userId, pitchContent))
             {
@@ -95,12 +95,13 @@ namespace BookReaderApp.ViewModels
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    string query = "INSERT INTO Pitch (userid, pitchcontent, isPublished) VALUES (@userid, @pitchcontent, @isPublished)";
+                    string query = "INSERT INTO Pitch (userid, pitchcontent, isPublished, isReviewed) VALUES (@userid, @pitchcontent, @isPublished, @isReviewed)";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@userid", userId);
                         command.Parameters.AddWithValue("@pitchcontent", pitchContent);
                         command.Parameters.AddWithValue("@isPublished", isPublished ? 1 : 0);
+                        command.Parameters.AddWithValue("@isReviewed", isReviewed ? 1 : 0);
 
 
                         connection.Open();
@@ -149,13 +150,41 @@ namespace BookReaderApp.ViewModels
                         Pid = reader["pid"].ToString(),
                         Userid = reader["userid"].ToString(),
                         PitchContent = reader["pitchcontent"].ToString(),
-                        IsPublished = reader.GetBoolean(reader.GetOrdinal("isPublished"))
+                        IsPublished = reader.GetBoolean(reader.GetOrdinal("isPublished")),
+                        IsReviewed = reader.GetBoolean(reader.GetOrdinal("isReviewed"))
                     };
                     pitches.Add(pitch);
                 }
             }
             return pitches;
         }
+        public static List<PitchModel> GetUserPitches(string userId)
+        {
+            List<PitchModel> pitches = new List<PitchModel>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT * FROM [Pitch] WHERE userid = @userId";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@userId", userId);
+
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    PitchModel pitch = new PitchModel
+                    {
+                        Pid = reader["pid"].ToString(),
+                        Userid = reader["userid"].ToString(),
+                        PitchContent = reader["pitchcontent"].ToString(),
+                        IsPublished = reader.GetBoolean(reader.GetOrdinal("isPublished")),
+                        IsReviewed = reader.GetBoolean(reader.GetOrdinal("isReviewed"))
+                    };
+                    pitches.Add(pitch);
+                }
+            }
+            return pitches;
+        }
+
         public static bool canPublish(string pitchId)
         {
             try
@@ -188,6 +217,39 @@ namespace BookReaderApp.ViewModels
                 return false;
             }
         }
+
+        public static bool isReviewed(string pitchId)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string query = "UPDATE Pitch SET isReviewed = 1 WHERE pid = @pitchId";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@pitchId", pitchId);
+
+                        connection.Open();
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error updating pitch: {ex.Message}");
+                return false;
+            }
+        }
+
 
         public static bool DeletePitch(string pitchId)
         {

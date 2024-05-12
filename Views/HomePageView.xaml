@@ -8,6 +8,15 @@
         <local:User />
     </ContentPage.BindingContext>
     <VerticalStackLayout>
+        <Button
+              x:Name="SignoutBtn"
+              Text="Sign out" 
+              SemanticProperties.Hint="Signout Clicked"
+              Clicked="SignoutClicked"
+              BackgroundColor="PaleVioletRed"
+                HeightRequest="10"
+             HorizontalOptions="End"
+              WidthRequest="150"/>
         <StackLayout Orientation="Horizontal" HorizontalOptions="End" Spacing="30">
             <Label
                 x:Name="WelcomeField"
@@ -18,7 +27,7 @@
                 Source="{Binding Source={x:Static local:User.Image}}"
                 HeightRequest = "50"
                 Aspect = "AspectFit"
-                SemanticProperties.Description = "dot net bot in a race car number eight" />
+                SemanticProperties.Description = "user's pfp" />
 
             <Button
               x:Name="ShowUserBtn"
@@ -45,7 +54,17 @@
               Clicked="AddPitchBtnClicked"
               BackgroundColor="MediumPurple"
                 HeightRequest="10"
-              WidthRequest="150"/>      
+              WidthRequest="150"/>
+            
+            <Button
+              x:Name="ViewPitchBtn"
+              Text="View Your Pitch(es)" 
+              SemanticProperties.Hint="View Pitchs Clicked"
+              Clicked="ViewPitchBtnClicked"
+              BackgroundColor="Yellow"
+                HeightRequest="10"
+              WidthRequest="150"/>
+      
         </StackLayout>
 
         <Label
