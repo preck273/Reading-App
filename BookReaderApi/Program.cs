@@ -22,7 +22,7 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Login Api", Version = "v1" });
 });
 
-string connectionString = @"Data Source=DESKTOP-MUE5L5M\SQLEXPRESS06;Initial Catalog=Quintor;Integrated Security=True; Encrypt=false";
+string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\g3k01\source\repos\BookReaderApi\Quintor.mdf;Trusted_Connection=true;encrypt=false";
 
 // Register DbContext with MSSQL connection
 builder.Services.AddDbContext<databaseContext>(options =>

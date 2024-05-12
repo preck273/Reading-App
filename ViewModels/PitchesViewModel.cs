@@ -6,6 +6,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -286,7 +288,38 @@ namespace BookReaderApp.ViewModels
                 return false;
             }
         }
+
+        public void SendEmail(string senderEmail, string recipientEmail, string subject, string body)
+        {
+            if (string.IsNullOrEmpty(senderEmail))
+            {
+                throw new ArgumentException("Sender email cannot be null or empty.", nameof(senderEmail));
+            }
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
+            {
+                Port = 587,
+                Credentials = new NetworkCredential(senderEmail, ""),
+                EnableSsl = true,
+            };
+
+            MailMessage mailMessage = new MailMessage
+            {
+                From = new MailAddress(senderEmail),
+                Subject = subject,
+                Body = body,
+                IsBodyHtml = true,
+            };
+            mailMessage.To.Add(recipientEmail);
+
+            try
+            {
+                smtpClient.Send(mailMessage);
+                Console.WriteLine("Email sent successfully.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to send email: {ex.Message}");
+            }
+        }
     }
-
-
 }

@@ -24,6 +24,7 @@ public partial class EditUserView : ContentPage
             Password = selectedUser.Password,
             Level = newLevel ?? selectedUser.Level,
             Image = selectedUser.Image,
+            Email = selectedUser.Email,
         };
 
         string postData = JsonConvert.SerializeObject(loginModel);

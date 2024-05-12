@@ -24,6 +24,9 @@ namespace bookAppApi.Model
 
         [XmlElement(ElementName = "image")]
         public string image { get; set; }
+        
+        [XmlElement(ElementName = "email")]
+        public string email { get; set; }
 
 
     }

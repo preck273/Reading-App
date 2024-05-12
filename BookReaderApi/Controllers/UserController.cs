@@ -48,7 +48,8 @@ namespace bookAppApi.Controllers
                     username = u.Username,
                     password = u.Password,
                     level = u.Level,
-                    image = u.Image
+                    image = u.Image,
+                    email = u.Email,
 
                 })
                 .ToList();
@@ -78,6 +79,7 @@ namespace bookAppApi.Controllers
                     password = entityUser.Password,
                     level = entityUser.Level,
                     image = entityUser.Image,
+                    email = entityUser.Email,
                 };
 
                 return Ok(modelUser);
@@ -99,7 +101,8 @@ namespace bookAppApi.Controllers
                     Username = userModel.username,
                     Password = userModel.password,
                     Level = userModel.level,
-                    Image = userModel.image
+                    Image = userModel.image,
+                    Email = userModel.email,
                 };
 
                 _dbContext.User.Add(newUser); 
@@ -139,6 +142,7 @@ namespace bookAppApi.Controllers
                     existingUser.Password = userModel.password;
                     existingUser.Level = userModel.level;
                     existingUser.Image = userModel.image;
+                    existingUser.Email = userModel.email;
 
                     _dbContext.SaveChanges();
 

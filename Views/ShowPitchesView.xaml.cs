@@ -8,24 +8,15 @@ public partial class ShowPitchesView : ContentPage
 {
     private readonly LoginViewModel loginController = new LoginViewModel();
     private readonly SignupViewModel signUpController = new SignupViewModel();
+    private readonly PitchesViewModel pitchController = new PitchesViewModel();
     private LoginModel selectedUser = new LoginModel();
     public ShowPitchesView()
 	{
 		InitializeComponent();
         FillTable();
-        CheckUserRole();
 
     }
-    private void CheckUserRole()
-    {
-        if (User.Level == userLevel.EDITOR)
-        {
-           
-        }
-        else
-        {
-        }
-    }
+    
     private async void PitchesListView_ItemTapped(object sender, ItemTappedEventArgs e)
     {
 
@@ -39,8 +30,11 @@ public partial class ShowPitchesView : ContentPage
                 if (!grantPrivilege)
                 {
                     //Possibly send email to user that their pitch has been denied
-                    //Make is reviewed for all 
+;
+                    //Semaphore here
+                    pitchController.SendEmail(User.Email, selectedUser.Email, "Pitch Denied", "Your pitch has been denied.");
                     PitchesViewModel.isReviewed(selectedPitch.Pid);
+                    
                     //PitchesViewModel.DeletePitch(selectedPitch.Pid);
 
                     ValidationField.Text = "Pitch has been denied!";
@@ -57,6 +51,7 @@ public partial class ShowPitchesView : ContentPage
                         Password = selectedUser.Password,
                         Level = "writer",
                         Image = selectedUser.Image,
+                        Email = selectedUser.Email,
                     };
 
                     string postData = JsonConvert.SerializeObject(loginModel);
@@ -66,8 +61,15 @@ public partial class ShowPitchesView : ContentPage
                     ValidationField.Text = response;
                     if (response == "User updated successfully!")
                     {
-                        PitchesViewModel.canPublish(selectedPitch.Pid);
+                        //Semaphore here
+                        Debug.WriteLine(User.Email);
+                        Debug.WriteLine(selectedUser.Email);
+
+                        //pitchController.SendEmail(User.Email, selectedUser.Email, "Pitch Accepted", "Your pitch has been accepted.");
+
                         PitchesViewModel.isReviewed(selectedPitch.Pid);
+                        PitchesViewModel.canPublish(selectedPitch.Pid);
+
                         ShowUsersView nextPage = new ShowUsersView();
 
                         await Navigation.PushAsync(nextPage);

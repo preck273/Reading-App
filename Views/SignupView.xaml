@@ -55,6 +55,17 @@
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="CenterAndExpand"/>
             
+            <Label
+                Text="Email"
+                HorizontalOptions="Start"
+                VerticalOptions="Start" />
+
+            <Entry
+                Placeholder="Enter Email"
+                x:Name="EmailEntry"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="CenterAndExpand" 
+                /> 
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="30">
                 <Button

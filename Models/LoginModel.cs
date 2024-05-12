@@ -13,6 +13,7 @@ namespace BookReaderApp.Models
         public string Password { get; set; }
         public string Level { get; set; }
         public string Image { get; set; }
+        public string Email { get; set; }
 
     }
 }

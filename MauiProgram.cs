@@ -1,17 +1,12 @@
-﻿using BookReaderApp.MongoDb;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 
 namespace BookReaderApp
 {
     public static class MauiProgram
     {
-		
-
-		public static MauiApp CreateMauiApp()
+        public static MauiApp CreateMauiApp()
         {
-			CreateDb createDb = new CreateDb("ReadingApp");
-
-			var builder = MauiApp.CreateBuilder();
+            var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
@@ -25,8 +20,6 @@ namespace BookReaderApp
 #endif
 
             return builder.Build();
-
-            
         }
     }
 }

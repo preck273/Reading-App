@@ -57,20 +57,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <AndroidResource Remove="BookReaderApi\**" />
-	  <Compile Remove="BookReaderApi\**" />
-	  <EmbeddedResource Remove="BookReaderApi\**" />
-	  <MauiCss Remove="BookReaderApi\**" />
-	  <MauiXaml Remove="BookReaderApi\**" />
-	  <None Remove="BookReaderApi\**" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
-		<PackageReference Include="MongoDB.Driver" Version="2.25.0" />
-		<PackageReference Include="MongoDB.Driver.Core" Version="2.25.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
 	</ItemGroup>
@@ -104,9 +93,6 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\SignupView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\UploadBookView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

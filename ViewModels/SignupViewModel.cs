@@ -30,7 +30,7 @@ namespace BookReaderApp.ViewModels
 
         }
 
-        public async Task Post(string username, string password, string level, string image)
+        public async Task Post(string username, string password, string level, string image, string email)
         {
             Random random = new Random();
             int id = random.Next(1000, 9999);
@@ -43,6 +43,7 @@ namespace BookReaderApp.ViewModels
                 Password = password,
                 Level = level,
                 Image = image,
+                Email = email,
             };
             string postData = JsonConvert.SerializeObject(user);
             await PostData(postData);
