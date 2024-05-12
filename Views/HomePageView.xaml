@@ -6,36 +6,17 @@
              Title="HomePageView">
     <ContentPage.BindingContext>
         <local:User />
-        
-
     </ContentPage.BindingContext>
-    <!-- Centered Content -->
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-   
-        </Grid.RowDefinitions>
-
-        <StackLayout Grid.Row="1" HorizontalOptions="Start" VerticalOptions="Center">
-            <!-- Book Picture -->
-            <Image Source="{Binding BookImage}"
-                
-                   Aspect="AspectFit"
-                   BackgroundColor="red"
-                   HeightRequest="320" />
-            
-
-            <!-- Book Name -->
-            <Label Text="{Binding BookName}" 
-                   FontSize="20"
-                   FontAttributes="Bold"
-                   HorizontalOptions="Center"
-                   VerticalOptions="CenterAndExpand" />
-        </StackLayout>
-   
-
     <VerticalStackLayout>
+        <Button
+              x:Name="SignoutBtn"
+              Text="Sign out" 
+              SemanticProperties.Hint="Signout Clicked"
+              Clicked="SignoutClicked"
+              BackgroundColor="PaleVioletRed"
+                HeightRequest="10"
+             HorizontalOptions="End"
+              WidthRequest="150"/>
         <StackLayout Orientation="Horizontal" HorizontalOptions="End" Spacing="30">
             <Label
                 x:Name="WelcomeField"
@@ -46,7 +27,7 @@
                 Source="{Binding Source={x:Static local:User.Image}}"
                 HeightRequest = "50"
                 Aspect = "AspectFit"
-                SemanticProperties.Description = "dot net bot in a race car number eight" />
+                SemanticProperties.Description = "user's pfp" />
 
             <Button
               x:Name="ShowUserBtn"
@@ -76,25 +57,21 @@
               WidthRequest="150"/>
             
             <Button
-                x:Name="UploadBtn"
-                Text="Upload Book" 
-                SemanticProperties.Hint="Upload new book"
-                Clicked="UploadBtnClicked"
-                BackgroundColor="DarkGreen"
+              x:Name="ViewPitchBtn"
+              Text="View Your Pitch(es)" 
+              SemanticProperties.Hint="View Pitchs Clicked"
+              Clicked="ViewPitchBtnClicked"
+              BackgroundColor="Yellow"
                 HeightRequest="10"
-                WidthRequest="150"/>              
-
-
-            </StackLayout>
+              WidthRequest="150"/>
+      
+        </StackLayout>
 
         <Label
             x:Name="ValidationField"
             Text=""
             HorizontalOptions="Start"
             VerticalOptions="Start" />  
-        
 
     </VerticalStackLayout>
-    </Grid>
-
 </ContentPage>

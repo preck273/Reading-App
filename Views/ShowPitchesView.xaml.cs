@@ -13,45 +13,88 @@ public partial class ShowPitchesView : ContentPage
 	{
 		InitializeComponent();
         FillTable();
-
+        CheckUserRole();
 
     }
-
+    private void CheckUserRole()
+    {
+        if (User.Level == userLevel.EDITOR)
+        {
+           
+        }
+        else
+        {
+        }
+    }
     private async void PitchesListView_ItemTapped(object sender, ItemTappedEventArgs e)
     {
 
         var selectedPitch = (PitchModel)e.Item;
         getUser(selectedPitch.Userid);
-
-        bool grantPrivilege = await DisplayAlert("Grant Writer Privilege", $"Grant user {selectedPitch.Userid} Writer privilege?", "Yes", "No");
-
-        if (!grantPrivilege)
+        if (User.Level == userLevel.EDITOR)
         {
-            signUpController.Delete(selectedPitch.Userid);
+            if (selectedPitch.IsPublished == false)
+            {
+                bool grantPrivilege = await DisplayAlert("Grant Writer Privilege", $"Grant user {selectedPitch.Userid} Writer privilege?", "Yes", "No");
+                if (!grantPrivilege)
+                {
+                    //Possibly send email to user that their pitch has been denied
+                    //Make is reviewed for all 
+                    PitchesViewModel.isReviewed(selectedPitch.Pid);
+                    //PitchesViewModel.DeletePitch(selectedPitch.Pid);
 
-            ValidationField.Text = "Pitch has been deleted from the database";
+                    ValidationField.Text = "Pitch has been denied!";
+                    ShowPitchesView previousPage = new ShowPitchesView();
+
+                    await Navigation.PushAsync(previousPage);
+                }
+                else
+                {
+                    LoginModel loginModel = new LoginModel
+                    {
+                        Id = selectedUser.Id,
+                        Username = selectedUser.Username,
+                        Password = selectedUser.Password,
+                        Level = "writer",
+                        Image = selectedUser.Image,
+                    };
+
+                    string postData = JsonConvert.SerializeObject(loginModel);
+
+                    string response = await signUpController.Put(selectedUser.Id, postData);
+
+                    ValidationField.Text = response;
+                    if (response == "User updated successfully!")
+                    {
+                        PitchesViewModel.canPublish(selectedPitch.Pid);
+                        PitchesViewModel.isReviewed(selectedPitch.Pid);
+                        ShowUsersView nextPage = new ShowUsersView();
+
+                        await Navigation.PushAsync(nextPage);
+                    }
+                }
+            }
+            else
+            {
+                ValidationField.Text = "Pitch has already been accepted";
+            }
         }
-        else
+        else 
         {
-            LoginModel loginModel = new LoginModel
+            if (!selectedPitch.IsPublished)
             {
-                Id = selectedUser.Id,
-                Username = selectedUser.Username,
-                Password = selectedUser.Password,
-                Level ="writer",
-                Image = selectedUser.Image,
-            };
-
-            string postData = JsonConvert.SerializeObject(loginModel);
-
-            string response = await signUpController.Put(selectedUser.Id, postData);
-
-            ValidationField.Text = response;
-            if (response == "User updated successfully!")
+                if (selectedPitch.IsReviewed)
+                {
+                    await DisplayAlert("Pitch Denied", "Your pitch was denied. Please submit a new pitch.", "OK");
+                }
+                else
+                {
+                    await DisplayAlert("Pitch Review", "Your pitch has not been reviewed by an editor. Please wait for the review.", "OK");
+                }
+            }
+            else
             {
-                ShowUsersView previousPage = new ShowUsersView();
-
-                await Navigation.PushAsync(previousPage);
+                await DisplayAlert("Ready to Publish", "You can now publish the book using the publish button on the home page.", "OK");
             }
         }
     }
@@ -66,9 +109,18 @@ public partial class ShowPitchesView : ContentPage
 
     public async void FillTable()
     {
-        List<PitchModel> pitches = PitchesViewModel.GetAllPitches();
+        if (User.Level == userLevel.EDITOR)
+        {
+            List<PitchModel> pitches = PitchesViewModel.GetAllPitches();
+            PitchesListView.ItemsSource = pitches;
+        }
+        else
+        {
+            List<PitchModel> pitches = PitchesViewModel.GetUserPitches(User.UserId);
+            PitchesListView.ItemsSource = pitches;
+        }
            
-        PitchesListView.ItemsSource = pitches;
+        
     }
     
     public async void getUser(string id)

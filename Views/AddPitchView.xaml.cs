@@ -14,13 +14,14 @@ public partial class AddPitchView : ContentPage
     {
         string pitchContent = PitchEntry.Text;
 
+
         if (string.IsNullOrWhiteSpace(pitchContent))
         {
             ValidationField.Text = "Please enter pitch content";
             return;
         }
 
-        bool success = PitchesViewModel.AddPitch(User.UserId, pitchContent);
+        bool success = PitchesViewModel.AddPitch(User.UserId, pitchContent, false, false);
 
         if (success)
         {

@@ -1,38 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Pepelito\\Documents\\GitHub\\Reading-App\\",
+  "WorkspaceRootPath": "C:\\Users\\g3k01\\OneDrive\\Documenten\\GitHub\\Reading-App\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0E9ED774-220D-43DC-ADE8-2971E9AF5CF1}|BookReaderApp.csproj|c:\\users\\pepelito\\documents\\github\\reading-app\\viewmodels\\pitchesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E9ED774-220D-43DC-ADE8-2971E9AF5CF1}|BookReaderApp.csproj|solutionrelative:viewmodels\\pitchesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E9ED774-220D-43DC-ADE8-2971E9AF5CF1}|BookReaderApp.csproj|c:\\users\\pepelito\\documents\\github\\reading-app\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E9ED774-220D-43DC-ADE8-2971E9AF5CF1}|BookReaderApp.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E9ED774-220D-43DC-ADE8-2971E9AF5CF1}|BookReaderApp.csproj|c:\\users\\pepelito\\documents\\github\\reading-app\\views\\uploadbookview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E9ED774-220D-43DC-ADE8-2971E9AF5CF1}|BookReaderApp.csproj|solutionrelative:views\\uploadbookview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E9ED774-220D-43DC-ADE8-2971E9AF5CF1}|BookReaderApp.csproj|c:\\users\\pepelito\\documents\\github\\reading-app\\views\\uploadbookview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0E9ED774-220D-43DC-ADE8-2971E9AF5CF1}|BookReaderApp.csproj|solutionrelative:views\\uploadbookview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E9ED774-220D-43DC-ADE8-2971E9AF5CF1}|BookReaderApp.csproj|c:\\users\\pepelito\\documents\\github\\reading-app\\viewmodels\\uploadbookviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E9ED774-220D-43DC-ADE8-2971E9AF5CF1}|BookReaderApp.csproj|solutionrelative:viewmodels\\uploadbookviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E9ED774-220D-43DC-ADE8-2971E9AF5CF1}|BookReaderApp.csproj|c:\\users\\pepelito\\documents\\github\\reading-app\\viewmodels\\bookcollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E9ED774-220D-43DC-ADE8-2971E9AF5CF1}|BookReaderApp.csproj|solutionrelative:viewmodels\\bookcollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E9ED774-220D-43DC-ADE8-2971E9AF5CF1}|BookReaderApp.csproj|c:\\users\\pepelito\\documents\\github\\reading-app\\views\\homepageview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0E9ED774-220D-43DC-ADE8-2971E9AF5CF1}|BookReaderApp.csproj|solutionrelative:views\\homepageview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E9ED774-220D-43DC-ADE8-2971E9AF5CF1}|BookReaderApp.csproj|c:\\users\\pepelito\\documents\\github\\reading-app\\views\\homepageview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E9ED774-220D-43DC-ADE8-2971E9AF5CF1}|BookReaderApp.csproj|solutionrelative:views\\homepageview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_G3K01_SOURCE_REPOS_BOOKREADERAPP_BOOKREADER.MDF/True/SqlTable/dbo.Pitch.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,15 +13,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{a80febb4-e7e0-4147-b476-21aaf2453969}"
             },
             {
               "$type": "Bookmark",
@@ -69,111 +36,13 @@
               "Name": "ST:1:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "PitchesViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Pepelito\\Documents\\GitHub\\Reading-App\\ViewModels\\PitchesViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\PitchesViewModel.cs",
-              "ToolTip": "C:\\Users\\Pepelito\\Documents\\GitHub\\Reading-App\\ViewModels\\PitchesViewModel.cs",
-              "RelativeToolTip": "ViewModels\\PitchesViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-11T03:03:23.727Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\Pepelito\\Documents\\GitHub\\Reading-App\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Models\\User.cs",
-              "ToolTip": "C:\\Users\\Pepelito\\Documents\\GitHub\\Reading-App\\Models\\User.cs",
-              "RelativeToolTip": "Models\\User.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-11T03:03:17.691Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "HomePageView.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Pepelito\\Documents\\GitHub\\Reading-App\\Views\\HomePageView.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\HomePageView.xaml.cs",
-              "ToolTip": "C:\\Users\\Pepelito\\Documents\\GitHub\\Reading-App\\Views\\HomePageView.xaml.cs",
-              "RelativeToolTip": "Views\\HomePageView.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACsAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-11T01:51:05.492Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UploadBookView.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Pepelito\\Documents\\GitHub\\Reading-App\\Views\\UploadBookView.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\UploadBookView.xaml.cs",
-              "ToolTip": "C:\\Users\\Pepelito\\Documents\\GitHub\\Reading-App\\Views\\UploadBookView.xaml.cs",
-              "RelativeToolTip": "Views\\UploadBookView.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAE8AAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-11T00:30:19.237Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UploadBookView.xaml",
-              "DocumentMoniker": "C:\\Users\\Pepelito\\Documents\\GitHub\\Reading-App\\Views\\UploadBookView.xaml",
-              "RelativeDocumentMoniker": "Views\\UploadBookView.xaml",
-              "ToolTip": "C:\\Users\\Pepelito\\Documents\\GitHub\\Reading-App\\Views\\UploadBookView.xaml",
-              "RelativeToolTip": "Views\\UploadBookView.xaml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAABGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-10T23:54:00.551Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UploadBookViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Pepelito\\Documents\\GitHub\\Reading-App\\ViewModels\\UploadBookViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\UploadBookViewModel.cs",
-              "ToolTip": "C:\\Users\\Pepelito\\Documents\\GitHub\\Reading-App\\ViewModels\\UploadBookViewModel.cs",
-              "RelativeToolTip": "ViewModels\\UploadBookViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-10T23:47:11.102Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "BookCollection.cs",
-              "DocumentMoniker": "C:\\Users\\Pepelito\\Documents\\GitHub\\Reading-App\\ViewModels\\BookCollection.cs",
-              "RelativeDocumentMoniker": "ViewModels\\BookCollection.cs",
-              "ToolTip": "C:\\Users\\Pepelito\\Documents\\GitHub\\Reading-App\\ViewModels\\BookCollection.cs",
-              "RelativeToolTip": "ViewModels\\BookCollection.cs",
-              "ViewState": "AQIAAAYAAAAoZmZmZmYkwA4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-11T01:58:11.202Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "HomePageView.xaml",
-              "DocumentMoniker": "C:\\Users\\Pepelito\\Documents\\GitHub\\Reading-App\\Views\\HomePageView.xaml",
-              "RelativeDocumentMoniker": "Views\\HomePageView.xaml",
-              "ToolTip": "C:\\Users\\Pepelito\\Documents\\GitHub\\Reading-App\\Views\\HomePageView.xaml",
-              "RelativeToolTip": "Views\\HomePageView.xaml",
-              "ViewState": "AQIAAAwAAADAQTMzMzMbwBQAAAAhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-10T21:06:31.13Z",
+              "Title": "dbo.Pitch [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_G3K01_SOURCE_REPOS_BOOKREADERAPP_BOOKREADER.MDF/True/SqlTable/dbo.Pitch.sql",
+              "ToolTip": "dbo.Pitch [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-05-11T11:29:35.476Z",
               "EditorCaption": ""
             }
           ]
