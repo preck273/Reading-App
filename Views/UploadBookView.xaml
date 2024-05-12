@@ -16,11 +16,10 @@
 
         <!-- Upload form -->
         <Entry Placeholder="Title" Text="{Binding Title}" x:Name="Title" />
-        <Entry Placeholder="Author" Text="{Binding Author}" x:Name="Author" />
-        <Button Text="Upload Image" Clicked="UploadImageButton_Clicked" />
-        <Image x:Name="bookImage" />
         <Button Text="Upload PDF" Clicked="UploadPdfButton_Clicked" />
-        <Label x:Name="pdfLabel" Text="{Binding PdfFileName}" />
+        <Label x:Name="pdfLabel" Text="{Binding PdfFile}" />
+        <Button Text="Upload Image" Clicked="UploadImageButton_Clicked" x:Name="bookImage" />
+        <Label x:Name="pdfImageLabel" Text="{Binding PdfImage}" />
         <Entry Placeholder="Category" Text="{Binding Category}" x:Name="Category" />
         <DatePicker Date="{Binding PublishedDate}" x:Name="datePicker" />
         <Editor Placeholder="Description" Text="{Binding Description}" x:Name="Description"/>

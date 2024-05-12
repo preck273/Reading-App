@@ -370,3 +370,9 @@ C:\Users\Pepelito\Documents\GitHub\Reading-App\bin\Debug\net8.0-windows10.0.1904
 C:\Users\Pepelito\Documents\GitHub\Reading-App\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Snappier.dll
 C:\Users\Pepelito\Documents\GitHub\Reading-App\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\ZstdSharp.dll
 C:\Users\Pepelito\Documents\GitHub\Reading-App\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\mongocrypt.dll
+C:\Users\Pepelito\Documents\GitHub\Reading-App\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\MongoDB.Driver.GridFS.dll
+C:\Users\Pepelito\Documents\GitHub\Reading-App\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Win32.SystemEvents.dll
+C:\Users\Pepelito\Documents\GitHub\Reading-App\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\PdfiumViewer.dll
+C:\Users\Pepelito\Documents\GitHub\Reading-App\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\System.Drawing.Common.dll
+C:\Users\Pepelito\Documents\GitHub\Reading-App\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\nl\PdfiumViewer.resources.dll
+C:\Users\Pepelito\Documents\GitHub\Reading-App\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\x64\pdfium.dll

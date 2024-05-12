@@ -1,39 +1,85 @@
 using BookReaderApp.Models;
 using BookReaderApp.ViewModels;
+using MongoDB.Bson;
+using MongoDB.Driver.GridFS;
+using MongoDB.Driver;
+using System.Collections.ObjectModel;
+
 
 namespace BookReaderApp.Views;
 
 public partial class HomePageView : ContentPage
 {
+    private readonly BookCollection bookCollection;
+
+	public ObservableCollection<BookModel> Books { get; set; }
+
 	public HomePageView()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         CheckUserRole();
 
-		var bookCollection = new BookCollection();
-
-		// Fetch book details from the database
-		var bookDetails = bookCollection.FetchBookDetailsFromDatabase();
-
-		if (bookDetails != null)
-		{
-			BindingContext = new UploadBookViewModel
-			{
-				BookName = bookDetails.Title,
-				//BookImage = ImageSource
-			};
-		}
-		else
-		{
-
-			DisplayAlert("Error", "Failed to fetch book details from the database", "OK");
-		}
+		Books = new ObservableCollection<BookModel>();
+		bookCollection = new BookCollection();
+		BookListView.ItemsSource = Books;
 
 	}
-    private async void ShowUsersClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new ShowUsersView());
-    }
+
+	protected override async void OnAppearing()
+	{
+		base.OnAppearing();
+		var bookList = await bookCollection.GetBooksAsync();
+
+		Books.Clear();
+
+		foreach (var book in bookList)
+		{
+			Books.Add(book);
+		}
+	}
+
+	private async void FetchFilesAndDisplay(BookModel book)
+	{
+		var client = new MongoClient("mongodb://localhost:27017");
+		var database = client.GetDatabase("ReadingBook");
+		var bucket = new GridFSBucket(database);
+
+		// Fetch the PDF file
+		var pdfFileId = ObjectId.Parse(book.PdfFile);
+		var pdfStream = await bucket.OpenDownloadStreamAsync(pdfFileId);
+		byte[] pdfBytes;
+		using (var ms = new MemoryStream())
+		{
+			await pdfStream.CopyToAsync(ms);
+			pdfBytes = ms.ToArray();
+		}
+
+		// Fetch the image file
+		var imageFileId = ObjectId.Parse(book.PdfImage);
+		var imageStream = await bucket.OpenDownloadStreamAsync(imageFileId);
+		byte[] imageBytes;
+		using (var ms = new MemoryStream())
+		{
+			await imageStream.CopyToAsync(ms);
+			imageBytes = ms.ToArray();
+		}
+
+		book.PdfImage = Convert.ToBase64String(imageBytes); // Assuming imageBytes is the byte array of your image
+
+		// Set the PdfImage property of the BookModel to the base64 string representation of the image
+		book.PdfImage = Convert.ToBase64String(imageBytes);
+
+		// Set the PdfFile property of the BookModel to the base64 string representation of the PDF file
+		book.PdfFile = Convert.ToBase64String(pdfBytes);
+
+	}
+
+
+
+	private async void ShowUsersClicked(object sender, EventArgs e)
+         {
+            await Navigation.PushAsync(new ShowUsersView());
+         }
 
     private void CheckUserRole()
     {

@@ -7,33 +7,34 @@
     <ContentPage.BindingContext>
         <local:User />
         
-
     </ContentPage.BindingContext>
     <!-- Centered Content -->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
-   
         </Grid.RowDefinitions>
 
-        <StackLayout Grid.Row="1" HorizontalOptions="Start" VerticalOptions="Center">
-            <!-- Book Picture -->
-            <Image Source="{Binding BookImage}"
-                
-                   Aspect="AspectFit"
-                   BackgroundColor="red"
-                   HeightRequest="320" />
-            
+        <!-- ListView to display books -->
+        <ListView x:Name="BookListView" Grid.Row="1" ItemsSource="{Binding Books}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout HorizontalOptions="Start" VerticalOptions="Center">
+                    
+                            <!-- Book Name -->
+                            <Label Text="{Binding Title}" 
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    
 
-            <!-- Book Name -->
-            <Label Text="{Binding BookName}" 
-                   FontSize="20"
-                   FontAttributes="Bold"
-                   HorizontalOptions="Center"
-                   VerticalOptions="CenterAndExpand" />
-        </StackLayout>
-   
 
     <VerticalStackLayout>
         <StackLayout Orientation="Horizontal" HorizontalOptions="End" Spacing="30">

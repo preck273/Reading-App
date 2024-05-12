@@ -1,104 +1,129 @@
 using BookReaderApp.Models;
 using BookReaderApp.MongoDb;
+using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB.Driver.GridFS;
+using System.Drawing;
+using Microsoft.Maui;
 
 namespace BookReaderApp.Views;
 
 public partial class UploadBookView : ContentPage
 {
-	private byte[] imageData;
-	private byte[] pdfData;
-	private IMongoDatabase database;
+	private byte[] pdfBytes; 
+	private byte[] imageBytes;
+
+	private SemaphoreSlim semaphore = new SemaphoreSlim(1);
 
 	public UploadBookView()
 	{
 		InitializeComponent();
 	}
 
-	private async void UploadImageButton_Clicked(object sender, EventArgs e)
-	{
-		var result = await FilePicker.PickAsync(new PickOptions
-		{
-			FileTypes = FilePickerFileType.Images,
-			PickerTitle = "Select Image"
-		});
-
-		if (result != null)
-		{
-			using (var stream = await result.OpenReadAsync())
-			{
-				using (MemoryStream ms = new MemoryStream())
-				{
-					await stream.CopyToAsync(ms);
-					imageData = ms.ToArray();
-				}
-			}
-		}
-	}
-
 	private async void UploadPdfButton_Clicked(object sender, EventArgs e)
 	{
-		var result = await FilePicker.PickAsync(new PickOptions
+		var file = await FilePicker.PickAsync(new PickOptions
 		{
 			FileTypes = FilePickerFileType.Pdf,
 			PickerTitle = "Select PDF"
 		});
 
-		if (result != null)
+		if (file != null)
 		{
-			using (var stream = await result.OpenReadAsync())
+			using (var stream = await file.OpenReadAsync())
 			{
 				using (MemoryStream ms = new MemoryStream())
 				{
 					await stream.CopyToAsync(ms);
-					pdfData = ms.ToArray();
+					pdfBytes = ms.ToArray();
 				}
 			}
+			pdfLabel.Text = file.FileName;
+		}
+	}
+
+	private async void UploadImageButton_Clicked(object sender, EventArgs e)
+	{
+		// Replace "ImagePicker" with your actual method for picking an image file
+		var imageFile = await FilePicker.PickAsync(new PickOptions
+		{
+			FileTypes = FilePickerFileType.Images,
+			PickerTitle = "Select Image"
+		});
+
+		if (imageFile != null)
+		{
+			using (var stream = await imageFile.OpenReadAsync())
+			{
+				using (MemoryStream ms = new MemoryStream())
+				{
+					await stream.CopyToAsync(ms);
+					imageBytes = ms.ToArray();
+				}
+			}
+			//bookImage.Source = ImageSource.FromStream(() => new MemoryStream(imageBytes));
+			pdfImageLabel.Text = imageFile.FileName;
 		}
 	}
 
 	private async void UploadButtonClicked(object sender, EventArgs e)
 	{
-		// Create a new Book object with the uploaded data
-		var book = new BookModel
-		{
-			Title = Title.Text,
-			Author = Author.Text,
-			BookImage = imageData,
-			PdfFile = pdfData,
-			Category = Category.Text,
-			PublishedDate = datePicker.Date,
-			Description = Description.Text
-		};
-
-		BindingContext = book;
-		// Save the book to the database
-		
-		SaveToDatabaseAsync(book);
-		await DisplayAlert("Success", "Book uploaded successfully!", "OK");
-
-		await Navigation.PopAsync();
-	}
-
-	private async Task SaveToDatabaseAsync(BookModel book)
-	{
-		
 		try
 		{
+			await semaphore.WaitAsync(); // Wait for semaphore to become available
 
-			var client = new MongoClient("mongodb://localhost:27017/");
-			var database = client.GetDatabase("ReadingApp");
-			var collection = database.GetCollection<BookModel>("Book");
+			if (pdfBytes != null && imageBytes != null)
+			{
+				var book = new BookModel
+				{
+					Title = Title.Text,
+					Author = User.UserName,
+					Category = Category.Text,
+					PublishedDate = datePicker.Date,
+					Description = Description.Text
+				};
 
-			collection.InsertOne(book);
+				await SaveToDatabaseAsync(pdfBytes, imageBytes, book);
+
+				await DisplayAlert("Success", "Book uploaded successfully!", "OK");
+
+				await Navigation.PopAsync();
+			}
+			else
+			{
+				await DisplayAlert("Error", "Please upload both a PDF file and an image.", "OK");
+			}
 		}
-		catch (Exception ex)
+		finally
 		{
-			// Handle the exception
-			Console.WriteLine($"An error occurred: {ex.Message}");
-
-			await DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
+			semaphore.Release(); // Release the semaphore to allow other threads to enter
 		}
 	}
-	
+
+	private async Task SaveToDatabaseAsync(byte[] pdfBytes, byte[] imageBytes, BookModel book)
+	{
+		var client = new MongoClient("mongodb://localhost:27017");
+		var database = client.GetDatabase("ReadingBook");
+		var bucket = new GridFSBucket(database);
+
+		using (var pdfStream = new MemoryStream(pdfBytes))
+		using (var imageStream = new MemoryStream(imageBytes))
+		{
+			var options = new GridFSUploadOptions
+			{
+				Metadata = new BsonDocument("BookDetails", book.ToBsonDocument())
+			};
+
+			var pdfFileId = await bucket.UploadFromStreamAsync(book.Title + ".pd", pdfStream, options);
+			var imageFileId = await bucket.UploadFromStreamAsync(book.Title  + ".jpg", imageStream, options);
+
+			book.PdfFile = pdfFileId.ToString();
+			book.PdfImage = imageFileId.ToString();
+
+			var booksCollection = database.GetCollection<BookModel>("Book");
+			await booksCollection.InsertOneAsync(book);
+		}
+	}
 }
+
+	

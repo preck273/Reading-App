@@ -9,7 +9,7 @@ namespace BookReaderApp
 
 		public static MauiApp CreateMauiApp()
         {
-			CreateDb createDb = new CreateDb("ReadingApp");
+			CreateDb createDb = new CreateDb("ReadingBook");
 
 			var builder = MauiApp.CreateBuilder();
             builder

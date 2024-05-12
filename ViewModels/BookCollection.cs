@@ -10,29 +10,20 @@ namespace BookReaderApp.ViewModels
 {
 	public class BookCollection
 	{
-		private readonly IMongoCollection<BookModel> collection;
+		private readonly IMongoCollection<BookModel> booksCollection;
 
 
 		public BookCollection()
 		{
 			var client = new MongoClient("mongodb://localhost:27017/");
-			var database = client.GetDatabase("ReadingApp");
-			var collection = database.GetCollection<BookModel>("Book");
+			var database = client.GetDatabase("ReadingBook");
+			 this.booksCollection = database.GetCollection<BookModel>("Book");
 		}
 
-		public BookModel FetchBookDetailsFromDatabase()
+		public async Task<List<BookModel>> GetBooksAsync()
 		{
-			try
-			{
-				// Query the database to retrieve a book
-				return collection.Find(_ => true).FirstOrDefault();
-			}
-			catch (Exception ex)
-			{
-				Console.WriteLine($"An error occurred while fetching book details: {ex.Message}");
-				return null;
-			}
+			// Fetch book data from MongoDB
+			return await booksCollection.Find(_ => true).ToListAsync();
 		}
-
 	}
 }
