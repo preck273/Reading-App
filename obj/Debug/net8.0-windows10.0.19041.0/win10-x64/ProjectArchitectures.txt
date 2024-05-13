@@ -1,1 +1,0 @@
-C:\Users\Pepelito\Documents\GitHub\Reading-App\BookReaderApp.csproj;x64
