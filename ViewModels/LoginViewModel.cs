@@ -75,6 +75,28 @@ class LoginViewModel
             return "null";
         }
     }
+    public async Task<string> GetUserEmail(string username, string password)
+    {
+        try
+        {
+            string jsonData = await GetAllJson();
+
+            List<LoginModel> userList = JsonConvert.DeserializeObject<List<LoginModel>>(jsonData);
+            foreach (LoginModel user in userList)
+            {
+                if (user.Username == username && user.Password == password)
+                {
+                    return user.Email;
+                }
+            }
+            return "null";
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}");
+            return "null";
+        }
+    }
 
     public async Task<string> GetById(string id, string format)
     {
