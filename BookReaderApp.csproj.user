@@ -6,6 +6,9 @@
     <ActiveDebugProfile>Windows Machine</ActiveDebugProfile>
   </PropertyGroup>
   <ItemGroup>
+    <MauiXaml Update="Views\AddBookView.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\AddPitchView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
@@ -21,6 +24,9 @@
     <MauiXaml Update="Views\PitchView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\ShowBookView.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\ShowPitchesView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
@@ -28,9 +34,6 @@
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\SignupView.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
-    <MauiXaml Update="Views\UploadBookView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>

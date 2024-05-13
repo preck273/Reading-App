@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pepelito\\Documents\\GitHub\\Reading-App\\BookReaderApp.csproj": {}
+    "C:\\Users\\g3k01\\source\\repos\\BookReaderApp\\BookReaderApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pepelito\\Documents\\GitHub\\Reading-App\\BookReaderApp.csproj": {
+    "C:\\Users\\g3k01\\source\\repos\\BookReaderApp\\BookReaderApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pepelito\\Documents\\GitHub\\Reading-App\\BookReaderApp.csproj",
+        "projectUniqueName": "C:\\Users\\g3k01\\source\\repos\\BookReaderApp\\BookReaderApp.csproj",
         "projectName": "BookReaderApp",
-        "projectPath": "C:\\Users\\Pepelito\\Documents\\GitHub\\Reading-App\\BookReaderApp.csproj",
-        "packagesPath": "C:\\Users\\Pepelito\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pepelito\\Documents\\GitHub\\Reading-App\\obj\\",
+        "projectPath": "C:\\Users\\g3k01\\source\\repos\\BookReaderApp\\BookReaderApp.csproj",
+        "packagesPath": "C:\\Users\\g3k01\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\g3k01\\source\\repos\\BookReaderApp\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Pepelito\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\g3k01\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -31,7 +31,8 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/mseng/PipelineTools/_packaging/nugetvssprivate/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net8.0-android34.0": {
@@ -84,14 +85,6 @@
               "version": "[8.0.4, )",
               "autoReferenced": true
             },
-            "MongoDB.Driver": {
-              "target": "Package",
-              "version": "[2.25.0, )"
-            },
-            "MongoDB.Driver.Core": {
-              "target": "Package",
-              "version": "[2.25.0, )"
-            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
@@ -142,14 +135,6 @@
               "target": "Package",
               "version": "[8.0.4, )",
               "autoReferenced": true
-            },
-            "MongoDB.Driver": {
-              "target": "Package",
-              "version": "[2.25.0, )"
-            },
-            "MongoDB.Driver.Core": {
-              "target": "Package",
-              "version": "[2.25.0, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -202,14 +187,6 @@
               "version": "[8.0.4, )",
               "autoReferenced": true
             },
-            "MongoDB.Driver": {
-              "target": "Package",
-              "version": "[2.25.0, )"
-            },
-            "MongoDB.Driver.Core": {
-              "target": "Package",
-              "version": "[2.25.0, )"
-            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
@@ -255,14 +232,6 @@
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
               "version": "[8.0.7, )"
-            },
-            "MongoDB.Driver": {
-              "target": "Package",
-              "version": "[2.25.0, )"
-            },
-            "MongoDB.Driver.Core": {
-              "target": "Package",
-              "version": "[2.25.0, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",

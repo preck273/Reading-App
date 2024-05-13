@@ -9,6 +9,13 @@ public partial class AddPitchView : ContentPage
 	{
 		InitializeComponent();
 	}
+    private async void HomeClicked(object sender, EventArgs e)
+    {
+        HomePageView previousPage = new HomePageView();
+
+        await Navigation.PushAsync(previousPage);
+    }
+
 
     private void OnSubmitClicked(object sender, EventArgs e)
     {
@@ -21,7 +28,7 @@ public partial class AddPitchView : ContentPage
             return;
         }
 
-        bool success = PitchesViewModel.AddPitch(User.UserId, pitchContent, false, false);
+        bool success = PitchesViewModel.AddPitch(User.UserId, pitchContent, false, false,false);
 
         if (success)
         {

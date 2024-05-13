@@ -40,6 +40,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.Resources.St
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
+[C:/Users/g3k01/source/repos/BookReaderApp/Views/AddBookView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.Views.AddBookView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AddBookView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AddBookView.xaml
+
 [C:/Users/g3k01/source/repos/BookReaderApp/Views/AddPitchView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.Views.AddPitchView.xaml
@@ -69,6 +75,12 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.Views.PitchView.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\PitchView.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\PitchView.xaml
+
+[C:/Users/g3k01/source/repos/BookReaderApp/Views/ShowBookView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = BookReaderApp.Views.ShowBookView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ShowBookView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ShowBookView.xaml
 
 [C:/Users/g3k01/source/repos/BookReaderApp/Views/ShowPitchesView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml

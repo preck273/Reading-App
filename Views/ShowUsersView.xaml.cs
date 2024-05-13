@@ -44,7 +44,8 @@ public partial class ShowUsersView : ContentPage
                 Username = user.Username,
                 Password = user.Password,
                 Level = user.Level,
-                Image = user.Image
+                Image = user.Image,
+                Email = user.Email
             };
             userViewModels.Add(userViewModel);
         }

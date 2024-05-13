@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\g3k01\source\repos\BookReaderApp\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-05-12T12:31:29.533</Modified>
+      <Modified>2024-05-13T16:43:01.776</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\g3k01\source\repos\BookReaderApp\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2024-05-12T10:49:06.734</Modified>
+      <Modified>2024-05-13T16:30:14.074</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\g3k01\source\repos\BookReaderApp\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\BookReaderApp.runtimeconfig.json">
       <PackagePath>BookReaderApp.runtimeconfig.json</PackagePath>
@@ -44,11 +44,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\g3k01\source\repos\BookReaderApp\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\BookReaderApp.dll">
       <PackagePath>BookReaderApp.dll</PackagePath>
-      <Modified>2024-05-12T12:31:28.419</Modified>
+      <Modified>2024-05-13T16:43:00.617</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\g3k01\source\repos\BookReaderApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>BookReaderApp.exe</PackagePath>
-      <Modified>2024-05-12T12:31:28.505</Modified>
+      <Modified>2024-05-13T16:43:00.666</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\g3k01\source\repos\BookReaderApp\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
@@ -288,7 +288,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\g3k01\source\repos\BookReaderApp\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\BookReaderApp.deps.json">
       <PackagePath>BookReaderApp.deps.json</PackagePath>
-      <Modified>2024-05-10T13:53:26.044</Modified>
+      <Modified>2024-05-13T11:19:21.176</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\g3k01\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.31\lib\net6.0\Microsoft.Windows.SDK.NET.dll">
       <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>

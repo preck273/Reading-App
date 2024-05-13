@@ -6,6 +6,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -84,7 +86,7 @@ namespace BookReaderApp.ViewModels
             return exists;
         }
 
-        public static bool AddPitch(string userId, string pitchContent, bool isPublished, bool isReviewed)
+        public static bool AddPitch(string userId, string pitchContent, bool isPublished, bool isReviewed, bool published)
         {
             if (PitchExists(userId, pitchContent))
             {
@@ -95,13 +97,15 @@ namespace BookReaderApp.ViewModels
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    string query = "INSERT INTO Pitch (userid, pitchcontent, isPublished, isReviewed) VALUES (@userid, @pitchcontent, @isPublished, @isReviewed)";
+                    string query = "INSERT INTO Pitch (userid, pitchcontent, isPublished, isReviewed, published) VALUES (@userid, @pitchcontent, @isPublished, @isReviewed, @published)";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@userid", userId);
                         command.Parameters.AddWithValue("@pitchcontent", pitchContent);
                         command.Parameters.AddWithValue("@isPublished", isPublished ? 1 : 0);
                         command.Parameters.AddWithValue("@isReviewed", isReviewed ? 1 : 0);
+
+                        command.Parameters.AddWithValue("@published", published ? 1 : 0);
 
 
                         connection.Open();
@@ -151,7 +155,8 @@ namespace BookReaderApp.ViewModels
                         Userid = reader["userid"].ToString(),
                         PitchContent = reader["pitchcontent"].ToString(),
                         IsPublished = reader.GetBoolean(reader.GetOrdinal("isPublished")),
-                        IsReviewed = reader.GetBoolean(reader.GetOrdinal("isReviewed"))
+                        IsReviewed = reader.GetBoolean(reader.GetOrdinal("isReviewed")),
+                        Published = reader.GetBoolean(reader.GetOrdinal("Published")),
                     };
                     pitches.Add(pitch);
                 }
@@ -177,7 +182,8 @@ namespace BookReaderApp.ViewModels
                         Userid = reader["userid"].ToString(),
                         PitchContent = reader["pitchcontent"].ToString(),
                         IsPublished = reader.GetBoolean(reader.GetOrdinal("isPublished")),
-                        IsReviewed = reader.GetBoolean(reader.GetOrdinal("isReviewed"))
+                        IsReviewed = reader.GetBoolean(reader.GetOrdinal("isReviewed")),
+                        Published = reader.GetBoolean(reader.GetOrdinal("Published")),
                     };
                     pitches.Add(pitch);
                 }
@@ -218,6 +224,38 @@ namespace BookReaderApp.ViewModels
             }
         }
 
+        public static bool published(string pitchId)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string query = "UPDATE Pitch SET published = 1 WHERE pid = @pitchId";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@pitchId", pitchId);
+
+                        connection.Open();
+                        int rowsAffected = command.ExecuteNonQuery();
+
+
+                        if (rowsAffected > 0)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error updating pitch: {ex.Message}");
+                return false;
+            }
+        }
         public static bool isReviewed(string pitchId)
         {
             try
@@ -286,7 +324,38 @@ namespace BookReaderApp.ViewModels
                 return false;
             }
         }
+
+        public void SendEmail(string senderEmail, string recipientEmail, string subject, string body)
+        {
+            if (string.IsNullOrEmpty(senderEmail))
+            {
+                throw new ArgumentException("Sender email cannot be null or empty.", nameof(senderEmail));
+            }
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
+            {
+                Port = 587,
+                Credentials = new NetworkCredential(senderEmail, "zofhvzlzzzawgihz"),
+                EnableSsl = true,
+            };
+
+            MailMessage mailMessage = new MailMessage
+            {
+                From = new MailAddress(senderEmail),
+                Subject = subject,
+                Body = body,
+                IsBodyHtml = true,
+            };
+            mailMessage.To.Add(recipientEmail);
+
+            try
+            {
+                smtpClient.Send(mailMessage);
+                Console.WriteLine("Email sent successfully.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to send email: {ex.Message}");
+            }
+        }
     }
-
-
 }

@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace BookReaderApp.Models
 {
-    internal class PitchModel
+    public class PitchModel
     {
         public string Pid { get; set; }
         public string Userid { get; set; }
         public string PitchContent { get; set; }
         public bool IsPublished { get; set; }
         public bool IsReviewed { get; set; }
+        public bool Published { get; set; }
     }
 }

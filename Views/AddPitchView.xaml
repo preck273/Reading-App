@@ -6,6 +6,16 @@
     <VerticalStackLayout Padding="30,0"
         Spacing="25">
 
+        <Button
+             x:Name="HomeBtn"
+             Text="Back to HomePage" 
+             SemanticProperties.Hint="Home Clicked"
+             Clicked="HomeClicked"
+             HorizontalOptions ="End"
+             BackgroundColor="YellowGreen"
+               HeightRequest="10"
+             WidthRequest="150"/>
+        
         <Label
             Text="Make a pitch"
             Style="{StaticResource Headline}"

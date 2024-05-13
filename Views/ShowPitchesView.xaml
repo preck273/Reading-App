@@ -27,6 +27,7 @@ Spacing="25">
             <Label Text="Pitch" WidthRequest="100" />
             <Label Text="CanPublish" WidthRequest="100" />
             <Label Text="Reviewed" WidthRequest="100" />
+            <Label Text="Published" WidthRequest="100" />
         </StackLayout>
         <ListView x:Name="PitchesListView" VerticalOptions="FillAndExpand"
                    ItemTapped="PitchesListView_ItemTapped">
@@ -40,6 +41,7 @@ Spacing="25">
                             <Label Text="{Binding PitchContent}" WidthRequest="100" />
                             <Label Text="{Binding IsPublished}" WidthRequest="100" />
                             <Label Text="{Binding IsReviewed}" WidthRequest="100" />
+                            <Label Text="{Binding Published}" WidthRequest="100" />
 
                         </StackLayout>
                     </ViewCell>

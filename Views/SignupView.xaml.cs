@@ -16,14 +16,13 @@ public partial class SignupView : ContentPage
 
     private async void SubmitClicked(object sender, EventArgs e)
     {
-        if (UsernameEntry.Text == "" || PasswordEntry.Text == "")
+        if (UsernameEntry.Text == "" || PasswordEntry.Text == "" || EmailEntry.Text == "")
         {
 
         }
         else
         {
             await Signup();
-            new NavigationPage(new LoginView());
         }
        
     } 
@@ -36,11 +35,13 @@ public partial class SignupView : ContentPage
     //Move to signUp page
     public async Task Signup()
     {
+
         bool exists = false;
         string username = UsernameEntry.Text;
         string password = PasswordEntry.Text;
         string level = "reader";
         string image = ImageEntry.Text;
+        string email = EmailEntry.Text;
 
         var json = await loginController.GetAllJson();
         var users = JsonConvert.DeserializeObject<List<LoginModel>>(json);
@@ -58,8 +59,12 @@ public partial class SignupView : ContentPage
         {
             try
             {
-                await signupController.Post(username, LoginView.HashString(password), level, image);
+                await signupController.Post(username, LoginView.HashString(password), level, image, email);
                 ValidationField.Text = "Successfully added!";
+
+                LoginView previousPage = new LoginView();
+
+                await Navigation.PushAsync(previousPage);
             }
             catch (Exception ex)
             {

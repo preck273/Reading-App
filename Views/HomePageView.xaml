@@ -66,6 +66,13 @@
               WidthRequest="150"/>
       
         </StackLayout>
+        <Label
+            Text="Published books"
+            Style="{StaticResource Headline}"
+            SemanticProperties.HeadingLevel="Level1"
+            HorizontalOptions="Center"/>    
+
+        <StackLayout x:Name="BooksLayout" Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="Start" />
 
         <Label
             x:Name="ValidationField"

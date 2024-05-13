@@ -12,6 +12,7 @@ namespace BookReaderApp.Models
         private static userLevel level;
         private static string userId;
         private static string image;
+        private static string email;
 
         public static string UserName
         {
@@ -23,9 +24,6 @@ namespace BookReaderApp.Models
             get { return image; }
             set { image = value; }
         }
-
-
-
         public static userLevel Level
         {
             get { return level; }
@@ -35,6 +33,11 @@ namespace BookReaderApp.Models
         {
             get { return userId; }
             set { userId = value; }
+        }
+        public static string Email
+        {
+            get { return email; }
+            set { email = value; }
         }
 
     }

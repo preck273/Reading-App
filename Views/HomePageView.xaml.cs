@@ -1,4 +1,5 @@
 using BookReaderApp.Models;
+using BookReaderApp.ViewModels;
 
 namespace BookReaderApp.Views;
 
@@ -8,8 +9,49 @@ public partial class HomePageView : ContentPage
 	{
 		InitializeComponent();
         CheckUserRole();
-
+        DisplayBooks();
     }
+  
+    private void DisplayBooks()
+    {
+        var allBooks = BookViewModel.GetAllBooks();
+        foreach (var book in allBooks)
+        {
+            var bookLayout = new StackLayout
+            {
+                Margin = new Thickness(5),
+                VerticalOptions = LayoutOptions.Start
+            };
+
+            var image = new Image
+            {
+                Source = ImageSource.FromStream(() => new System.IO.MemoryStream(book.Image)),
+                HeightRequest = 200,
+                Aspect = Aspect.AspectFit
+            };
+            
+            var title = new Label
+            {
+                Text = book.Title,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Start
+            };
+
+            var tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += async (s, e) =>
+            {
+                await Navigation.PushAsync(new ShowBookView(book));
+            };
+            image.GestureRecognizers.Add(tapGestureRecognizer);
+
+
+            bookLayout.Children.Add(image);
+            bookLayout.Children.Add(title);
+
+            BooksLayout.Children.Add(bookLayout);
+        }
+    }
+
     private async void ShowUsersClicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new ShowUsersView());
