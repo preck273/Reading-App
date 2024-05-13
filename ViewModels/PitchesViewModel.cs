@@ -3,13 +3,13 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
 using System.Net.Mail;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Data.SqlClient;
 
 namespace BookReaderApp.ViewModels
 {
@@ -17,11 +17,10 @@ namespace BookReaderApp.ViewModels
     {
         private static object _lock = new object();
         private readonly LoginViewModel loginController = new LoginViewModel();
-        private static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\g3k01\source\repos\BookReaderApp\BookReader.mdf;Trusted_Connection=true;encrypt=false";
+        private static string connectionString = @"Data Source=DESKTOP-MUE5L5M\SQLEXPRESS06;Initial Catalog=BookReader;Integrated Security=True;encrypt=false";
+		//Define db connection to pitches database
 
-        //Define db connection to pitches database
-
-        public PitchesViewModel() 
+		public PitchesViewModel() 
         {
             UsersFactory();
         }

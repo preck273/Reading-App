@@ -1,4 +1,5 @@
-﻿using BookReaderApp.ViewModels;
+﻿using BookReaderApp.HelperClass;
+using BookReaderApp.ViewModels;
 using BookReaderApp.Views;
 
 namespace BookReaderApp
@@ -9,8 +10,11 @@ namespace BookReaderApp
         {
             InitializeComponent();
 
-            //MainPage = new AppShell();
-            MainPage = new NavigationPage(new LoginView());
+			// Register the converter
+			Resources.Add("ByteToImageHelper", new ByteToImageHelper());
+
+			//MainPage = new AppShell();
+			MainPage = new NavigationPage(new LoginView());
         }
     }
 }

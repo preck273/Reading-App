@@ -18,11 +18,12 @@ namespace bookAppApi.Entities
     public class db
     {
 
-        private static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\g3k01\source\repos\BookReaderApi\Quintor.mdf;Trusted_Connection=true;encrypt=false";
+        private static string connectionString = @"Data Source=DESKTOP-MUE5L5M\SQLEXPRESS06;Initial Catalog=Quintor;Integrated Security=True;encrypt=false";
 
 
-        //Uses stored procedure to add a superuser id on api start after checking if the database has one
-        private static void AddSuperuser(SqlConnection connection)
+
+		//Uses stored procedure to add a superuser id on api start after checking if the database has one
+		private static void AddSuperuser(SqlConnection connection)
         {
             using (var command = new SqlCommand("AddSuperUser", connection))
             {
@@ -69,8 +70,6 @@ namespace bookAppApi.Entities
                 }
             }
         }
-
-
 
     }
 }

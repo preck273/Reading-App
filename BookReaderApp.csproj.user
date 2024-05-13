@@ -9,6 +9,9 @@
     <MauiXaml Update="Views\AddPitchView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\BookImageView.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\EditUserView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
@@ -28,6 +31,9 @@
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\SignupView.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\UploadBookView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>

@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helper="clr-namespace:BookReaderApp.HelperClass"
              xmlns:local="clr-namespace:BookReaderApp.Models"
              x:Class="BookReaderApp.Views.HomePageView"
              Title="HomePageView">
     <ContentPage.BindingContext>
         <local:User />
     </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <helper:ByteToImageHelper x:Key="ByteToImageHelper" />
+    </ContentPage.Resources>
+
     <VerticalStackLayout>
         <Button
               x:Name="SignoutBtn"
@@ -64,14 +70,55 @@
               BackgroundColor="Yellow"
                 HeightRequest="10"
               WidthRequest="150"/>
-      
+
+            <Button
+              x:Name="ViewUploadBookBtn"
+              Text="Upload Book" 
+              SemanticProperties.Hint="View Upload Clicked"
+              Clicked="ViewUploadBookBtnClicked"
+              BackgroundColor="Green"
+                HeightRequest="10"
+              WidthRequest="150"/>  
+
         </StackLayout>
 
         <Label
             x:Name="ValidationField"
             Text=""
             HorizontalOptions="Start"
-            VerticalOptions="Start" />  
+            VerticalOptions="Start" />
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- ListView to display books -->
+            <ListView x:Name="BookListView" Grid.Row="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout HorizontalOptions="Start" VerticalOptions="Center">
+                                <Image Source="{Binding CoverImage, Converter={StaticResource ByteToImageHelper}}"
+                                       WidthRequest="100"
+                                       HeightRequest="100">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnImageTapped" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <!-- Book Name -->
+                                <Label Text="{Binding Title}" 
+                                   FontSize="20"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="CenterAndExpand" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
 
     </VerticalStackLayout>
 </ContentPage>

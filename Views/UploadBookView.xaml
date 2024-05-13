@@ -1,0 +1,24 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookReaderApp.Views.UploadBookView"
+             Title="UploadBookView"
+             xmlns:local="clr-namespace:BookReaderApp.Models">
+    
+    <StackLayout Padding="20">
+        <Label Text="Upload your book"
+           VerticalOptions="Center" 
+           HorizontalOptions="Center" />
+
+       
+
+
+        <Entry Placeholder="Title" Text="{Binding Title}" x:Name="Title"  WidthRequest="400" Margin="-10,30,0,9" />
+        <Button Text="Cover Image" Clicked="UploadCoverImageButtonClicked" x:Name="coverImage" WidthRequest="180" Margin="-190,30,0,9" />
+        <Label x:Name="coverImageLabel" Text="{Binding CoverImage}" />
+        <Button Text="Book Image" Clicked="UploadBookImageButtonClicked" x:Name="bookImage" WidthRequest="180" Margin="-190,30,0,9" />
+        <Label x:Name="bookImageLabel" Text="{Binding BookImage}" />
+        <Editor Placeholder="Description" Text="{Binding Description}" x:Name="Description" WidthRequest="400" HeightRequest="120" Margin="0,30,0,9"/>
+        <Button Text="Upload Book" Clicked="UploadButtonClicked" WidthRequest="410" Margin="0,30,0,9" />
+
+    </StackLayout>
+</ContentPage>

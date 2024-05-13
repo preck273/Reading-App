@@ -1,3 +1,4 @@
+using BookReaderApp.HelperClass;
 using BookReaderApp.Models;
 
 namespace BookReaderApp.Views;
@@ -8,9 +9,34 @@ public partial class HomePageView : ContentPage
 	{
 		InitializeComponent();
         CheckUserRole();
+        LoadBooks();
 
     }
-    private async void ShowUsersClicked(object sender, EventArgs e)
+
+	private void LoadBooks()
+	{
+	
+		List<BookModel> books = RetriveBookHelper.GetBooks();
+
+		
+		BookListView.ItemsSource = books;
+	}
+
+	private void OnImageTapped(object sender, EventArgs e)
+	{
+		
+		var tappedImage = sender as Image;
+
+		var selectedBook = tappedImage?.BindingContext as BookModel;
+
+		if (selectedBook != null)
+		{
+
+			Navigation.PushAsync(new BookImageView(selectedBook));
+		}
+	}
+
+	private async void ShowUsersClicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new ShowUsersView());
     }
@@ -50,4 +76,9 @@ public partial class HomePageView : ContentPage
     {
         await Navigation.PushAsync(new ShowPitchesView());
     }
+
+	private async void ViewUploadBookBtnClicked(object sender, EventArgs e)
+	{
+		await Navigation.PushAsync(new UploadBookView());
+	}
 }
