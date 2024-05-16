@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Define user views for admin to have access to level rights but on default no level rights-->
+    <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BookReaderApp.ViewModels"
+             x:Class="BookReaderApp.Views.SignupView"
+             Title="Signup Page">
+    <ContentPage.BindingContext>
+        <local:SignupViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+
+            <Label
+                Text="Signup for BookApp"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Label
+                Text="Username"
+                HorizontalOptions="Start"
+                VerticalOptions="Start" />
+
+            <Entry
+                Placeholder="Enter Username"
+                x:Name="UsernameEntry"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="CenterAndExpand"
+                />
+
+            <Label
+                Text="Password"
+                HorizontalOptions="Start"
+                VerticalOptions="Start" />
+
+            <Entry
+                Placeholder="Enter Password"
+                x:Name="PasswordEntry"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="CenterAndExpand" 
+                IsPassword="True"/>
+
+            <!--Add image picker here-->
+            <Label
+                Text="Image Url"
+                HorizontalOptions="Start"
+                VerticalOptions="Start" />
+
+            <Entry
+                Placeholder="Enter Image Url"
+                x:Name="ImageEntry"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="CenterAndExpand"/>
+            
+            <Label
+                Text="Email"
+                HorizontalOptions="Start"
+                VerticalOptions="Start" />
+
+            <Entry
+                Placeholder="Enter Email"
+                x:Name="EmailEntry"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="CenterAndExpand" 
+                /> 
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="30">
+                <Button
+                    x:Name="SubmitBtn"
+                    Text="Submit" 
+                    SemanticProperties.Hint="Submit Clicked"
+                    Clicked="SubmitClicked"
+                    HorizontalOptions="Center"
+                    WidthRequest="150"
+                    BackgroundColor="GreenYellow"/>
+
+                <Button
+                    x:Name="CancelBtn"
+                    Text="Cancel" 
+                    SemanticProperties.Hint="Back to Login"
+                    Clicked="CancelClicked"
+                    WidthRequest="150"
+                    BackgroundColor="Red"/>
+            </StackLayout>
+            <Label
+                    x:Name="ValidationField"
+                    Text=""
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start" />  
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

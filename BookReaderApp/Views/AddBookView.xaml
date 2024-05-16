@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BookReaderApp.Models"
+             x:Class="BookReaderApp.Views.AddBookView"
+             Title="AddBookView">
+
+    <ContentPage.BindingContext>
+        <local:BookModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="20">
+        <Label Text="Upload your book"
+           VerticalOptions="Center" 
+           HorizontalOptions="Center" />
+
+        <Entry Placeholder="Title" Text="{Binding Title}" x:Name="Title" />
+        
+        <Button Text="Upload Cover" Clicked="UploadImageButton_Clicked" x:Name="bookImage" />
+        <Label x:Name="pdfImageLabel" Text="{Binding PdfImage}" />
+        
+        <Button Text="Submit Book Images" Clicked="SubmitBookImagesButton_Clicked" />
+
+
+        <Entry Placeholder="Content" Text="{Binding Content}" x:Name="Content" />
+
+        <Button Text="Upload" Clicked="UploadButtonClicked" />
+    </StackLayout>
+</ContentPage>

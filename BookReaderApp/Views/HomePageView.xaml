@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BookReaderApp.Models"
+             x:Class="BookReaderApp.Views.HomePageView"
+             Title="HomePageView">
+    <ContentPage.BindingContext>
+        <local:User />
+    </ContentPage.BindingContext>
+    <VerticalStackLayout>
+        <Button
+              x:Name="SignoutBtn"
+              Text="Sign out" 
+              SemanticProperties.Hint="Signout Clicked"
+              Clicked="SignoutClicked"
+              BackgroundColor="PaleVioletRed"
+                HeightRequest="10"
+             HorizontalOptions="End"
+              WidthRequest="150"/>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="End" Spacing="30">
+            <Label
+                x:Name="WelcomeField"
+                Text="{Binding Source={x:Static local:User.UserName}, StringFormat='Welcome {0}!'}"
+                HorizontalOptions="Start"
+                VerticalOptions="End" />
+            <Image 
+                Source="{Binding Source={x:Static local:User.Image}}"
+                HeightRequest = "50"
+                Aspect = "AspectFit"
+                SemanticProperties.Description = "user's pfp" />
+
+            <Button
+              x:Name="ShowUserBtn"
+              Text="Show All User" 
+              SemanticProperties.Hint="Show User Clicked"
+              Clicked="ShowUsersClicked"
+              BackgroundColor="YellowGreen"
+                HeightRequest="10"
+              WidthRequest="150"/>
+
+            <Button
+              x:Name="PitchBtn"
+              Text="Show All Pitches" 
+              SemanticProperties.Hint="Pitch Clicked"
+              Clicked="PitchBtnClicked"
+              BackgroundColor="MediumPurple"
+                HeightRequest="10"
+              WidthRequest="150"/>   
+            
+            <Button
+              x:Name="AddPitchBtn"
+              Text="Make A Pitch" 
+              SemanticProperties.Hint="New Pitch Clicked"
+              Clicked="AddPitchBtnClicked"
+              BackgroundColor="MediumPurple"
+                HeightRequest="10"
+              WidthRequest="150"/>
+            
+            <Button
+              x:Name="ViewPitchBtn"
+              Text="View Your Pitch(es)" 
+              SemanticProperties.Hint="View Pitchs Clicked"
+              Clicked="ViewPitchBtnClicked"
+              BackgroundColor="Yellow"
+                HeightRequest="10"
+              WidthRequest="150"/>
+      
+        </StackLayout>
+        <Label
+            Text="Published books"
+            Style="{StaticResource Headline}"
+            SemanticProperties.HeadingLevel="Level1"
+            HorizontalOptions="Center"/>    
+
+        <StackLayout x:Name="BooksLayout" Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="Start" />
+
+        <Label
+            x:Name="ValidationField"
+            Text=""
+            HorizontalOptions="Start"
+            VerticalOptions="Start" />  
+
+    </VerticalStackLayout>
+</ContentPage>
