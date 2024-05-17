@@ -1,0 +1,14 @@
+Installation guide
+Update connection strings in BookReaderApi in program.cs and db.cs 
+and all the modelview files in BookReaderApp
+Run api from project before running the app
+Update mssql server to 22 
+Update  .net and Maui to latest versions.
+
+GitHub repository
+
+Coding conventions 
+https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/identifier-names
+
+Demo video
+https://newuniversity-my.sharepoint.com/:v:/g/personal/ayodeji_olagoke_student_nhlstenden_com/EQvFhFmwECRMtjbg-d93YnABvsM8FK7QoiaLuGEqTQ-PpQ?e=ik94I7&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D

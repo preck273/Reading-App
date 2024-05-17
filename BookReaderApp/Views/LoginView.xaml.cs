@@ -39,13 +39,18 @@ namespace BookReaderApp.Views
             }
             else
             {
-                //Task Parallel Library
+                //Safe
                 await Login();
+                //Unsafe
+                //Login();
             }
+
         }
 
         private async Task Login()
         {
+            Console.WriteLine("Thread ID: {0}",
+                         Thread.CurrentThread.ManagedThreadId);
             string username = UsernameEntry.Text;
             string password = PasswordEntry.Text;
 
@@ -77,6 +82,7 @@ namespace BookReaderApp.Views
                 User.Email = await loginController.GetUserEmail(User.UserName, hashedpassword);
 
                 await Navigation.PushAsync(new HomePageView());
+                
             }
             else
             {

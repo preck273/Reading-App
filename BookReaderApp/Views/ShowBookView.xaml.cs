@@ -27,8 +27,6 @@ public partial class ShowBookView : ContentPage
         newThread.Start();
     }
 
-    // This method represents a resource that must be synchronized
-    // so that only one thread at a time can enter.
     private void UseResource(BookImageModel imag)
     {
         // Wait until it is safe to enter.
@@ -94,6 +92,16 @@ public partial class ShowBookView : ContentPage
         
         foreach (var imag in images)
         {
+            //Unsafe
+            /*var pic = new Image
+            {
+                Source = ImageSource.FromStream(() => new System.IO.MemoryStream(imag.Image)),
+                HeightRequest = 5000,
+                Aspect = Aspect.AspectFit
+            };
+            bookLayout.Children.Add(pic);*/
+
+            //safe
             UseResource(imag);
         }
 

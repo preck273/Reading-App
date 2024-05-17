@@ -130,6 +130,11 @@ namespace BookReaderApp.Views
             ValidationField.Text = response;
             if (response == "User updated successfully!")
             {
+                //unsafe
+             /*   SendEmail(accepted);
+                Updatedb(accepted, selectedPitch);*/
+
+                //safe
                 Debug.WriteLine("Sending {0} to {1}", "Pitch Accepted", selectedUser.Email);
                 await semaphore.WaitAsync();
                 try

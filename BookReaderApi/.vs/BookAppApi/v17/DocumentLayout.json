@@ -3,12 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\g3k01\\source\\repos\\BookReaderApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B10886C2-6E70-4A82-A975-216B0D4CBD99}|bookAppApi.csproj|c:\\users\\g3k01\\source\\repos\\bookreaderapi\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B10886C2-6E70-4A82-A975-216B0D4CBD99}|bookAppApi.csproj|solutionrelative:model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_G3K01_SOURCE_REPOS_BOOKREADERAPI_QUINTOR.MDF/True/SqlTable/dbo.User.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B10886C2-6E70-4A82-A975-216B0D4CBD99}|bookAppApi.csproj|C:\\Users\\g3k01\\source\\repos\\BookReaderApi\\entities\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B10886C2-6E70-4A82-A975-216B0D4CBD99}|bookAppApi.csproj|solutionrelative:entities\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B10886C2-6E70-4A82-A975-216B0D4CBD99}|bookAppApi.csproj|C:\\Users\\g3k01\\source\\repos\\BookReaderApi\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B10886C2-6E70-4A82-A975-216B0D4CBD99}|bookAppApi.csproj|solutionrelative:model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B10886C2-6E70-4A82-A975-216B0D4CBD99}|bookAppApi.csproj|C:\\Users\\g3k01\\source\\repos\\BookReaderApi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,7 +29,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,19 +53,29 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "dbo.User [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_G3K01_SOURCE_REPOS_BOOKREADERAPI_QUINTOR.MDF/True/SqlTable/dbo.User.sql",
+              "ToolTip": "dbo.User [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-05-16T19:01:25.826Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Users.cs",
               "DocumentMoniker": "C:\\Users\\g3k01\\source\\repos\\BookReaderApi\\Entities\\Users.cs",
               "RelativeDocumentMoniker": "Entities\\Users.cs",
               "ToolTip": "C:\\Users\\g3k01\\source\\repos\\BookReaderApi\\Entities\\Users.cs",
               "RelativeToolTip": "Entities\\Users.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-13T15:51:59.245Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\g3k01\\source\\repos\\BookReaderApi\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Controllers\\UserController.cs",
@@ -74,7 +87,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "db.cs",
               "DocumentMoniker": "C:\\Users\\g3k01\\source\\repos\\BookReaderApi\\db.cs",
               "RelativeDocumentMoniker": "db.cs",
@@ -86,7 +99,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\g3k01\\source\\repos\\BookReaderApi\\Model\\User.cs",
               "RelativeDocumentMoniker": "Model\\User.cs",
@@ -94,8 +107,7 @@
               "RelativeToolTip": "Model\\User.cs",
               "ViewState": "AQIAAAcAAAAAAAAAAAAiwBgAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-09T19:08:41.074Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-09T19:08:41.074Z"
             }
           ]
         }

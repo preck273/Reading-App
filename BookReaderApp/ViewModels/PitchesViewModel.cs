@@ -19,19 +19,34 @@ namespace BookReaderApp.ViewModels
         private readonly LoginViewModel loginController = new LoginViewModel();
         private static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\g3k01\source\repos\BookReaderApp\BookReader.mdf;Trusted_Connection=true;encrypt=false";
 
-        //Define db connection to pitches database
-
         public PitchesViewModel() 
         {
             UsersFactory();
         }
         private static void AddUser(LoginModel user)
         {
+            //unsafe
+            /*using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "INSERT INTO [User] (user_Id, username) VALUES (@user_Id, @username)";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@user_Id", Int32.Parse(user.Id));
+                    command.Parameters.AddWithValue("@username", user.Username);
+
+                    connection.Open();
+
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }*/
+            //Safe
             //Locking
             lock (_lock)
             {
                 Debug.WriteLine($"Thread {Thread.CurrentThread.ManagedThreadId} starting");
-                using (SqlConnection connection = new SqlConnection(connectionString))  
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     string query = "INSERT INTO [User] (user_Id, username) VALUES (@user_Id, @username)";
 
@@ -51,18 +66,23 @@ namespace BookReaderApp.ViewModels
             }
         }
 
+        //Lock to ensure when adding mutiple users, each user is being added
+        // Insert each user into the database
         public async void UsersFactory()
         {
             string jsonData = await loginController.GetAllJson();
 
             List<LoginModel> users = JsonConvert.DeserializeObject<List<LoginModel>>(jsonData);
 
-
-            //Lock to ensure when adding mutiple users, each user is being added
-
-            // Insert each user into the database
             foreach (var user in users)
             {
+                //UNSAFE
+                /*if (!UserExists(user))
+                {
+                    AddUser(user);
+                }*/
+                
+                //SAFE
                 if (!UserExists(user))
                 {
                     new Thread(() => AddUser(user)).Start();
@@ -297,21 +317,18 @@ namespace BookReaderApp.ViewModels
                 {
                     connection.Open();
 
-                    // Delete the record
                     string deleteQuery = "DELETE FROM Pitch WHERE pid = @pitchId";
                     using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection))
                     {
                         deleteCommand.Parameters.AddWithValue("@pitchId", pitchId);
                         int deleteRowsAffected = deleteCommand.ExecuteNonQuery();
 
-                        // Check if the record was successfully deleted
                         if (deleteRowsAffected > 0)
                         {
-                            return true; // Deletion successful
+                            return true; 
                         }
                         else
                         {
-                            // Handle deletion failure
                             Debug.WriteLine("Failed to delete the pitch record.");
                             return false;
                         }
